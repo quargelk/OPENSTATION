@@ -2799,19 +2799,10 @@ class MainActivity : Activity() {
             isVirtual = true,
             subtitle = "Магазин ТВ · APK"
         )
-        val ymEntry = AppEntry(
-            pkg = PKG_YANDEX_MUSIC,
-            label = "Яндекс Музыка",
-            icon = getDrawable(R.drawable.sprite_ym_emblem) ?: applicationInfo.loadIcon(pm),
-            intent = Intent(this, YandexMusicActivity::class.java),
-            leanback = true,
-            isVirtual = true,
-            subtitle = "Моя волна · Hi-Fi"
-        )
 
         val savedOrder = getSavedAppOrder()
         val orderIdx = savedOrder.withIndex().associate { it.value to it.index }
-        val combinedReorderable = listOf(ymEntry) + baseEntries
+        val combinedReorderable = baseEntries
         val sortedReorderable = combinedReorderable.sortedWith(
             compareBy<AppEntry> { orderIdx[it.pkg] ?: (10000 + combinedReorderable.indexOf(it)) }
         )
