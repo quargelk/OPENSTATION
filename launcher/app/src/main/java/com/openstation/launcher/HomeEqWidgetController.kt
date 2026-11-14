@@ -76,8 +76,8 @@ class HomeEqWidgetController(
                 radiusDp = 20f,
                 baseTint = Color.parseColor("#660B1324"),
                 focusTint = Color.parseColor("#8813223B"),
-                normalStroke = Color.parseColor("#4438BDF8"),
-                focusStroke = Color.parseColor("#FFE8C686"),
+                normalStroke = Color.parseColor("#44AAC7FF"),
+                focusStroke = Color.parseColor("#FFAAC7FF"),
                 refractStrength = 1.05f
             )
             elevation = dp(10).toFloat()
@@ -96,7 +96,7 @@ class HomeEqWidgetController(
 
         val tvTitle = TextView(context).apply {
             text = "ЭКВАЛАЙЗЕР"
-            setTextColor(Color.parseColor("#38BDF8"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 10.5f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -105,7 +105,7 @@ class HomeEqWidgetController(
 
         btnPresetPill = TextView(context).apply {
             text = "Баланс"
-            setTextColor(Color.parseColor("#F8FAFC"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 10.5f
             typeface = Typeface.DEFAULT_BOLD
             setPadding(dp(10), dp(3), dp(10), dp(3))
@@ -114,8 +114,8 @@ class HomeEqWidgetController(
                 radiusDp = 999f,
                 baseTint = Color.parseColor("#59182844"),
                 focusTint = Color.parseColor("#99263F66"),
-                normalStroke = Color.parseColor("#4DE8C686"),
-                focusStroke = Color.parseColor("#FFE8C686")
+                normalStroke = Color.parseColor("#4DAAC7FF"),
+                focusStroke = Color.parseColor("#FFAAC7FF")
             )
             isFocusable = true
             isClickable = true
@@ -168,7 +168,7 @@ class HomeEqWidgetController(
 
             val tvVal = TextView(context).apply {
                 text = "+0"
-                setTextColor(Color.parseColor("#E2E8F0"))
+                setTextColor(Color.parseColor("#E5E1E6"))
                 textSize = 9.5f
                 typeface = Typeface.DEFAULT_BOLD
                 gravity = Gravity.CENTER
@@ -184,7 +184,7 @@ class HomeEqWidgetController(
 
             val tvLbl = TextView(context).apply {
                 text = channelTitles[ch]
-                setTextColor(Color.parseColor(if (ch == 0) "#E8C686" else "#94A3B8"))
+                setTextColor(Color.parseColor(if (ch == 0) "#AAC7FF" else "#C8C5CF"))
                 textSize = 9.5f
                 typeface = if (ch == 0) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
                 gravity = Gravity.CENTER
@@ -203,7 +203,7 @@ class HomeEqWidgetController(
 
         tvHint = TextView(context).apply {
             text = "OK — настроить полосу · Выберите пресет выше"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 9.5f
             maxLines = 1
             setPadding(0, dp(6), 0, 0)
@@ -359,10 +359,10 @@ class HomeEqWidgetController(
         if (!::tvHint.isInitialized) return
         if (adjustingChannel >= 0) {
             tvHint.text = "▲▼ Изменить ${channelTitles[adjustingChannel]} · ◄► Полоса · OK готово"
-            tvHint.setTextColor(Color.parseColor("#E8C686"))
+            tvHint.setTextColor(Color.parseColor("#AAC7FF"))
         } else {
             tvHint.text = "OK на полосе — настройка уровня · Пресет: ${presetLabels[preset] ?: preset}"
-            tvHint.setTextColor(Color.parseColor("#94A3B8"))
+            tvHint.setTextColor(Color.parseColor("#C8C5CF"))
         }
     }
 
@@ -409,12 +409,12 @@ class HomeEqWidgetController(
             cornerRadius = dp(10).toFloat()
             when {
                 adjusting -> {
-                    setColor(Color.parseColor("#5400D4FF"))
-                    setStroke(dp(2), Color.parseColor("#FF00D4FF"))
+                    setColor(Color.parseColor("#54AAC7FF"))
+                    setStroke(dp(2), Color.parseColor("#FFAAC7FF"))
                 }
                 focused -> {
                     setColor(Color.parseColor("#4D182946"))
-                    setStroke(dp(2), Color.parseColor("#FFE8C686"))
+                    setStroke(dp(2), Color.parseColor("#FFAAC7FF"))
                 }
                 else -> {
                     setColor(Color.parseColor("#2E08101E"))
@@ -434,7 +434,7 @@ class HomeEqWidgetController(
         }
         private val fillPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         private val specPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#5538BDF8")
+            color = Color.parseColor("#55AAC7FF")
         }
         private val thumbPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = Color.WHITE
@@ -464,8 +464,8 @@ class HomeEqWidgetController(
                 lastH = h
                 fillPaint.shader = LinearGradient(
                     0f, h, 0f, 0f,
-                    if (isBass) Color.parseColor("#F59E0B") else Color.parseColor("#0EA5E9"),
-                    if (isBass) Color.parseColor("#FDE68A") else Color.parseColor("#2DD4BF"),
+                    if (isBass) Color.parseColor("#F0C56A") else Color.parseColor("#0EA5E9"),
+                    if (isBass) Color.parseColor("#F8E2B0") else Color.parseColor("#86D9A6"),
                     Shader.TileMode.CLAMP
                 )
             }

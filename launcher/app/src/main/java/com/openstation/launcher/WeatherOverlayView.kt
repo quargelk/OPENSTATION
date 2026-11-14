@@ -71,7 +71,7 @@ class WeatherOverlayView @JvmOverloads constructor(
             val gd = android.graphics.drawable.GradientDrawable().apply {
                 setColor(Color.parseColor("#33161B22"))
                 cornerRadius = 24f
-                setStroke(2, Color.parseColor("#4D38BDF8"))
+                setStroke(2, Color.parseColor("#4DAAC7FF"))
             }
             background = gd
         }
@@ -84,7 +84,7 @@ class WeatherOverlayView @JvmOverloads constructor(
         // City & Location
         tvCity = TextView(context).apply {
             textSize = 20f
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
             gravity = Gravity.CENTER
             setPadding(0, 0, 0, 8)
@@ -97,14 +97,14 @@ class WeatherOverlayView @JvmOverloads constructor(
             setTextColor(Color.WHITE)
             typeface = Typeface.create("sans-serif-black", Typeface.BOLD)
             gravity = Gravity.CENTER
-            setShadowLayer(16f, 0f, 6f, Color.parseColor("#6600D4FF"))
+            setShadowLayer(16f, 0f, 6f, Color.parseColor("#66AAC7FF"))
         }
         cardContainer.addView(tvTemp)
 
         // Condition text
         tvCondition = TextView(context).apply {
             textSize = 24f
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             typeface = Typeface.create("sans-serif", Typeface.NORMAL)
             gravity = Gravity.CENTER
             setPadding(0, 8, 0, 16)
@@ -114,7 +114,7 @@ class WeatherOverlayView @JvmOverloads constructor(
         // Auto-dismiss hint
         tvHint = TextView(context).apply {
             textSize = 13f
-            setTextColor(Color.parseColor("#64748B"))
+            setTextColor(Color.parseColor("#938F99"))
             text = "Нажмите любую кнопку на пульте для закрытия"
             gravity = Gravity.CENTER
         }
@@ -299,7 +299,7 @@ class WeatherOverlayView @JvmOverloads constructor(
 
             sunPaint.shader = RadialGradient(
                 cx, cy, baseR * 1.8f,
-                intArrayOf(Color.parseColor("#FFFACC15"), Color.parseColor("#66F59E0B"), Color.TRANSPARENT),
+                intArrayOf(Color.parseColor("#FFFACC15"), Color.parseColor("#66F0C56A"), Color.TRANSPARENT),
                 floatArrayOf(0f, 0.45f, 1f),
                 Shader.TileMode.CLAMP
             )
@@ -321,7 +321,7 @@ class WeatherOverlayView @JvmOverloads constructor(
 
         private fun drawRain(canvas: Canvas, w: Float, h: Float, dt: Float) {
             val speedScale = (dt * 60f).coerceIn(0.5f, 2.0f)
-            pPaint.color = Color.parseColor("#8038BDF8")
+            pPaint.color = Color.parseColor("#80AAC7FF")
             pPaint.strokeWidth = 2.5f
             pPaint.style = Paint.Style.STROKE
 
@@ -356,7 +356,7 @@ class WeatherOverlayView @JvmOverloads constructor(
 
         private fun drawClouds(canvas: Canvas, w: Float, h: Float, dt: Float) {
             val speedScale = (dt * 60f).coerceIn(0.5f, 2.0f)
-            pPaint.color = Color.parseColor("#2694A3B8")
+            pPaint.color = Color.parseColor("#26C8C5CF")
             pPaint.style = Paint.Style.FILL
 
             for (p in particles) {

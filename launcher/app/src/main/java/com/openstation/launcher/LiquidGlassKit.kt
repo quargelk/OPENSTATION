@@ -50,9 +50,9 @@ object LiquidGlassKit {
             title = "Титан и обсидиан",
             subtitle = "Глубокий OLED",
             baseDarkHex = "#030509",
-            primaryHex = "#94A3B8",
+            primaryHex = "#C8C5CF",
             secondaryHex = "#3B82F6",
-            highlightHex = "#E2E8F0",
+            highlightHex = "#E5E1E6",
             useStagePhotoTint = false
         ),
         WallpaperTheme(
@@ -70,7 +70,7 @@ object LiquidGlassKit {
             subtitle = "Ультрамарин и туман",
             baseDarkHex = "#05040E",
             primaryHex = "#8B5CF6",
-            secondaryHex = "#38BDF8",
+            secondaryHex = "#AAC7FF",
             highlightHex = "#EDE9FE"
         ),
         WallpaperTheme(
@@ -78,9 +78,9 @@ object LiquidGlassKit {
             title = "Жидкая платина",
             subtitle = "Серый монолит",
             baseDarkHex = "#05070B",
-            primaryHex = "#CBD5E1",
-            secondaryHex = "#64748B",
-            highlightHex = "#F8FAFC"
+            primaryHex = "#C8C5CF",
+            secondaryHex = "#938F99",
+            highlightHex = "#E5E1E6"
         ),
         WallpaperTheme(
             id = "solar_amber",
@@ -96,7 +96,7 @@ object LiquidGlassKit {
             title = "Северное сияние",
             subtitle = "Малахит и ночь",
             baseDarkHex = "#020A08",
-            primaryHex = "#10B981",
+            primaryHex = "#86D9A6",
             secondaryHex = "#0284C7",
             highlightHex = "#D1FAE5"
         )
@@ -314,7 +314,7 @@ object LiquidGlassKit {
         private val baseTint: Int = Color.parseColor("#540A1222"),
         private val focusTint: Int = Color.parseColor("#7315253E"),
         private var normalStroke: Int = Color.parseColor("#38FFFFFF"),
-        private var focusStroke: Int = Color.parseColor("#FFE8C686"),
+        private var focusStroke: Int = Color.parseColor("#FFAAC7FF"),
         private val strokeWidthPx: Float = 2.2f,
         private val focusStrokeWidthPx: Float = 4.2f,
         private val refractStrength: Float = 1.0f,

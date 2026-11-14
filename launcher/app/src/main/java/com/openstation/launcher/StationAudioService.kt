@@ -155,7 +155,7 @@ class StationAudioService : Service() {
             if (evKind == "connected") {
                 volumeOverlayManager?.showToastPill("BLUETOOTH ПОДКЛЮЧЁН", "$devName · Станция готова к воспроизведению", "#10D281", 3200L)
             } else {
-                volumeOverlayManager?.showToastPill("BLUETOOTH ОТКЛЮЧЁН", devName, "#F87171", 2600L)
+                volumeOverlayManager?.showToastPill("BLUETOOTH ОТКЛЮЧЁН", devName, "#FFB4AB", 2600L)
             }
             thread(isDaemon = true) {
                 postJsonToDaemon("/api/bluetooth/device_event", JSONObject().put("event", evKind).put("device", devName))
@@ -501,12 +501,12 @@ class StationAudioService : Service() {
                     handler.post { bringLauncherHome() }
                 }
                 "find_remote" -> {
-                    volumeOverlayManager?.showToastPill("ПОИСК ПУЛЬТА", "Отправляю BLE-сигнал зуммера на пульт...", "#E8C686", 2400L)
+                    volumeOverlayManager?.showToastPill("ПОИСК ПУЛЬТА", "Отправляю BLE-сигнал зуммера на пульт...", "#AAC7FF", 2400L)
                     bleRemoteManager?.triggerBuzzer { ok, msg ->
                         volumeOverlayManager?.showToastPill(
                             if (ok) "ПУЛЬТ ОТКЛИКНУЛСЯ" else "ПУЛЬТ НЕ НАЙДЕН",
                             msg,
-                            if (ok) "#E8C686" else "#F87171",
+                            if (ok) "#AAC7FF" else "#FFB4AB",
                             3500L
                         )
                     }
@@ -515,8 +515,8 @@ class StationAudioService : Service() {
                     bleRemoteManager?.startAutoScanAndPair(60000L) { st, detail ->
                         val col = when (st) {
                             "connected" -> "#10D281"
-                            "error", "not_found" -> "#F87171"
-                            else -> "#00D4FF"
+                            "error", "not_found" -> "#FFB4AB"
+                            else -> "#AAC7FF"
                         }
                         volumeOverlayManager?.showToastPill("BLE ПУЛЬТ YANDEX", detail, col, 3200L)
                     }
@@ -633,7 +633,7 @@ class StationAudioService : Service() {
                         volumeOverlayManager?.showToastPill(
                             "BLUETOOTH КОЛОНКА",
                             "Видима как OpenStation Max ($durationSec сек)",
-                            "#00D4FF",
+                            "#AAC7FF",
                             3500L
                         )
                     }
@@ -653,7 +653,7 @@ class StationAudioService : Service() {
                         volumeOverlayManager?.showToastPill(
                             "BLUETOOTH ВЫКЛЮЧЕН",
                             "Режим беспроводной колонки отключён",
-                            "#F87171",
+                            "#FFB4AB",
                             2600L
                         )
                     }

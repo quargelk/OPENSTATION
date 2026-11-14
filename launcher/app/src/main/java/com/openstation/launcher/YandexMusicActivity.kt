@@ -283,7 +283,7 @@ class YandexMusicActivity : Activity() {
         }
         val tvLogo = TextView(this).apply {
             text = "ЯНДЕКС МУЗЫКА"
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 18.5f
             typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
             letterSpacing = 0.06f
@@ -303,11 +303,11 @@ class YandexMusicActivity : Activity() {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
         }
-        tabWave = makeIconTextPill(R.drawable.ic_wave, "Моя волна", Color.parseColor("#E8C686")) { switchTab("wave") }
-        tabSearch = makeIconTextPill(R.drawable.ic_search, "Поиск", Color.parseColor("#38BDF8")) { switchTab("search") }
+        tabWave = makeIconTextPill(R.drawable.ic_wave, "Моя волна", Color.parseColor("#AAC7FF")) { switchTab("wave") }
+        tabSearch = makeIconTextPill(R.drawable.ic_search, "Поиск", Color.parseColor("#AAC7FF")) { switchTab("search") }
         tabCollection = makeIconTextPill(R.drawable.ic_heart_filled, "Коллекция", null) { switchTab("collection") }
-        tabAuth = makeIconTextPill(R.drawable.ic_settings, "Вход", Color.parseColor("#CBD5E1")) { switchTab("auth") }
-        val btnBackHome = makeIconTextPill(R.drawable.ic_home, "Домой", Color.parseColor("#F1F5F9")) { finish() }.apply {
+        tabAuth = makeIconTextPill(R.drawable.ic_settings, "Вход", Color.parseColor("#C8C5CF")) { switchTab("auth") }
+        val btnBackHome = makeIconTextPill(R.drawable.ic_home, "Домой", Color.parseColor("#E5E1E6")) { finish() }.apply {
             (layoutParams as LinearLayout.LayoutParams).marginEnd = 0
         }
 
@@ -381,27 +381,27 @@ class YandexMusicActivity : Activity() {
         }
         tvSourceBadge = TextView(this).apply {
             text = "МОЯ ВОЛНА"
-            setTextColor(Color.parseColor("#38BDF8"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 10.5f
             typeface = Typeface.DEFAULT_BOLD
             letterSpacing = 0.05f
             setPadding(dp(10), dp(3), dp(10), dp(3))
             background = GradientDrawable().apply {
-                setColor(Color.parseColor("#2238BDF8"))
-                setStroke(dp(1), Color.parseColor("#5538BDF8"))
+                setColor(Color.parseColor("#22AAC7FF"))
+                setStroke(dp(1), Color.parseColor("#55AAC7FF"))
                 cornerRadius = dp(999).toFloat()
             }
         }
         tvCodecBadge = TextView(this).apply {
             text = ""
             visibility = View.GONE
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 10.5f
             typeface = Typeface.DEFAULT_BOLD
             setPadding(dp(9), dp(3), dp(9), dp(3))
             background = GradientDrawable().apply {
-                setColor(Color.parseColor("#26E8C686"))
-                setStroke(dp(1), Color.parseColor("#55E8C686"))
+                setColor(Color.parseColor("#26AAC7FF"))
+                setStroke(dp(1), Color.parseColor("#55AAC7FF"))
                 cornerRadius = dp(999).toFloat()
             }
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
@@ -437,7 +437,7 @@ class YandexMusicActivity : Activity() {
             visibility = View.GONE
             background = GradientDrawable().apply {
                 setColor(Color.TRANSPARENT)
-                setStroke(dp(1), Color.parseColor("#77E8C686"))
+                setStroke(dp(1), Color.parseColor("#77AAC7FF"))
                 cornerRadius = dp(16).toFloat()
             }
             layoutParams = FrameLayout.LayoutParams(dp(164), dp(164), Gravity.CENTER_VERTICAL).apply {
@@ -459,7 +459,7 @@ class YandexMusicActivity : Activity() {
         }
         tvTrackArtist = TextView(this).apply {
             text = "Нажмите «Моя волна» или скажите Максу"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 13f
             gravity = Gravity.CENTER
             maxLines = 2
@@ -484,13 +484,13 @@ class YandexMusicActivity : Activity() {
         }
         tvTimePos = TextView(this).apply {
             text = "0:00"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
         }
         tvTimeDur = TextView(this).apply {
             text = "0:00"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             gravity = Gravity.END
         }
@@ -505,10 +505,10 @@ class YandexMusicActivity : Activity() {
             }
         }
         btnPrev = makeCtrlIconBtn(R.drawable.ic_prev, Color.WHITE) { doPlayerAction("PREV") }
-        btnPlayPause = makeCtrlIconBtn(R.drawable.ic_play, Color.parseColor("#E8C686")) { doPlayerAction("PLAY_PAUSE") }
+        btnPlayPause = makeCtrlIconBtn(R.drawable.ic_play, Color.parseColor("#AAC7FF")) { doPlayerAction("PLAY_PAUSE") }
         btnNext = makeCtrlIconBtn(R.drawable.ic_next, Color.WHITE) { doPlayerAction("NEXT") }
         btnLike = makeCtrlIconBtn(R.drawable.ic_heart_outline, null) { doPlayerAction("LIKE") }
-        btnDislike = makeCtrlIconBtn(R.drawable.ic_dislike, Color.parseColor("#94A3B8")) { doPlayerAction("DISLIKE") }
+        btnDislike = makeCtrlIconBtn(R.drawable.ic_dislike, Color.parseColor("#C8C5CF")) { doPlayerAction("DISLIKE") }
         listOf(btnPrev, btnPlayPause, btnNext, btnLike, btnDislike).forEachIndexed { idx, btn ->
             btn.root.layoutParams = LinearLayout.LayoutParams(dp(46), dp(40)).apply {
                 if (idx < 4) marginEnd = dp(8)
@@ -532,7 +532,7 @@ class YandexMusicActivity : Activity() {
             }
             val ivW = ImageView(this@YandexMusicActivity).apply {
                 val d = getDrawable(R.drawable.ic_wave)?.mutate()
-                d?.setTint(Color.parseColor("#0B0F17"))
+                d?.setTint(Color.parseColor("#131316"))
                 setImageDrawable(d)
                 layoutParams = LinearLayout.LayoutParams(dp(18), dp(18)).apply {
                     marginEnd = dp(8)
@@ -540,7 +540,7 @@ class YandexMusicActivity : Activity() {
             }
             val tvW = TextView(this@YandexMusicActivity).apply {
                 text = "МОЯ ВОЛНА"
-                setTextColor(Color.parseColor("#0B0F17"))
+                setTextColor(Color.parseColor("#131316"))
                 textSize = 14f
                 typeface = Typeface.DEFAULT_BOLD
                 letterSpacing = 0.05f
@@ -551,7 +551,7 @@ class YandexMusicActivity : Activity() {
 
         tvErrorLine = TextView(this).apply {
             visibility = View.GONE
-            setTextColor(Color.parseColor("#FCA5A5"))
+            setTextColor(Color.parseColor("#FFB4AB"))
             textSize = 11.5f
             gravity = Gravity.CENTER
             setPadding(0, dp(8), 0, 0)
@@ -606,7 +606,7 @@ class YandexMusicActivity : Activity() {
 
         val moodTitle = TextView(this).apply {
             text = "НАСТРОЕНИЕ ВОЛНЫ"
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -655,7 +655,7 @@ class YandexMusicActivity : Activity() {
                 }
                 val tv = TextView(this@YandexMusicActivity).apply {
                     text = shortLabel
-                    setTextColor(Color.parseColor("#F1F5F9"))
+                    setTextColor(Color.parseColor("#E5E1E6"))
                     textSize = 11f
                     typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
                     gravity = Gravity.CENTER
@@ -681,7 +681,7 @@ class YandexMusicActivity : Activity() {
             typeface = Typeface.DEFAULT_BOLD
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
         }
-        val btnRestartWave = makeIconTextPill(R.drawable.ic_refresh, "Перезапустить", Color.parseColor("#E8C686")) {
+        val btnRestartWave = makeIconTextPill(R.drawable.ic_refresh, "Перезапустить", Color.parseColor("#AAC7FF")) {
             startMyWave(lastSnapshot.waveMood)
         }.apply {
             (layoutParams as LinearLayout.LayoutParams).marginEnd = 0
@@ -716,7 +716,7 @@ class YandexMusicActivity : Activity() {
         }
         etSearch = EditText(this).apply {
             hint = "Исполнитель, трек или настроение..."
-            setHintTextColor(Color.parseColor("#64748B"))
+            setHintTextColor(Color.parseColor("#938F99"))
             setTextColor(Color.WHITE)
             textSize = 14f
             setSingleLine(true)
@@ -724,7 +724,7 @@ class YandexMusicActivity : Activity() {
             setPadding(dp(12), dp(9), dp(12), dp(9))
             background = GradientDrawable().apply {
                 setColor(Color.parseColor("#CC141E30"))
-                setStroke(dp(1), Color.parseColor("#44E8C686"))
+                setStroke(dp(1), Color.parseColor("#44AAC7FF"))
                 cornerRadius = dp(12).toFloat()
             }
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
@@ -741,7 +741,7 @@ class YandexMusicActivity : Activity() {
                 }
             }
         }
-        val btnFind = makeIconTextPill(R.drawable.ic_search, "Найти", Color.parseColor("#38BDF8")) { performSearch() }.apply {
+        val btnFind = makeIconTextPill(R.drawable.ic_search, "Найти", Color.parseColor("#AAC7FF")) { performSearch() }.apply {
             (layoutParams as LinearLayout.LayoutParams).marginEnd = 0
         }
         searchRow.addView(etSearch)
@@ -749,7 +749,7 @@ class YandexMusicActivity : Activity() {
 
         tvSearchStatus = TextView(this).apply {
             text = "Введите запрос или попросите Макса: «Макс, включи Кино»"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12.5f
             setPadding(0, 0, 0, dp(8))
         }
@@ -786,7 +786,7 @@ class YandexMusicActivity : Activity() {
             collectionMode = "chart"
             loadCollection()
         }
-        btnColPlayAll = makeIconTextPill(R.drawable.ic_play, "Включить список", Color.parseColor("#E8C686")) {
+        btnColPlayAll = makeIconTextPill(R.drawable.ic_play, "Включить список", Color.parseColor("#AAC7FF")) {
             if (collectionTracks.isNotEmpty()) {
                 val lbl = if (collectionMode == "chart") "Топ Чарт" else "Мне нравится"
                 player()?.playTrackList(collectionTracks, 0, collectionMode, lbl)
@@ -801,7 +801,7 @@ class YandexMusicActivity : Activity() {
 
         tvColStatus = TextView(this).apply {
             text = "Загрузка..."
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12.5f
             setPadding(0, 0, 0, dp(8))
         }
@@ -828,7 +828,7 @@ class YandexMusicActivity : Activity() {
 
         val tvH1 = TextView(this).apply {
             text = "АККАУНТ ЯНДЕКС МУЗЫКИ"
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -845,13 +845,13 @@ class YandexMusicActivity : Activity() {
             orientation = LinearLayout.HORIZONTAL
             setPadding(0, 0, 0, dp(16))
         }
-        val btnBrowserLogin = makeIconTextPill(R.drawable.ic_open_external, "Войти через Яндекс", Color.parseColor("#38BDF8")) {
+        val btnBrowserLogin = makeIconTextPill(R.drawable.ic_open_external, "Войти через Яндекс", Color.parseColor("#AAC7FF")) {
             openPassportOAuthDialog()
         }
         val btnManualToken = makeIconTextPill(R.drawable.ic_key, "OAuth токен", null) {
             promptOAuthTokenDialog()
         }
-        btnAuthLogout = makeIconTextPill(R.drawable.ic_hw_mic_off, "Выйти", Color.parseColor("#FCA5A5")) {
+        btnAuthLogout = makeIconTextPill(R.drawable.ic_hw_mic_off, "Выйти", Color.parseColor("#FFB4AB")) {
             player()?.logout()
             Toast.makeText(this, "Вышли из аккаунта Яндекс Музыки", Toast.LENGTH_SHORT).show()
         }.apply {
@@ -863,7 +863,7 @@ class YandexMusicActivity : Activity() {
 
         val tvH2 = TextView(this).apply {
             text = "КАЧЕСТВО АУДИО"
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -914,7 +914,7 @@ class YandexMusicActivity : Activity() {
 
         tvWebHint = TextView(this).apply {
             text = "Быстрая отправка токена с телефона:\nОткройте веб-пульт колонки и перейдите на вкладку «Пульт, Музыка & ТВ»."
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12.5f
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
         }
@@ -1058,13 +1058,13 @@ class YandexMusicActivity : Activity() {
                                 setPadding(dp(14), dp(9), dp(14), dp(9))
                                 setBackgroundResource(R.drawable.bg_tile)
                                 addView(TextView(context).apply {
-                                    setTextColor(Color.parseColor("#F8FAFC"))
+                                    setTextColor(Color.parseColor("#E5E1E6"))
                                     textSize = 14f
                                     maxLines = 1
                                     ellipsize = TextUtils.TruncateAt.END
                                 })
                                 addView(TextView(context).apply {
-                                    setTextColor(Color.parseColor("#94A3B8"))
+                                    setTextColor(Color.parseColor("#C8C5CF"))
                                     textSize = 12f
                                     maxLines = 1
                                     ellipsize = TextUtils.TruncateAt.END
@@ -1182,7 +1182,7 @@ class YandexMusicActivity : Activity() {
                 else -> R.drawable.ic_play
             }
         )?.mutate()?.apply {
-            setTint(Color.parseColor("#E8C686"))
+            setTint(Color.parseColor("#AAC7FF"))
         }
         btnPlayPause.icon.setImageDrawable(ppIcon)
 
@@ -1257,7 +1257,7 @@ class YandexMusicActivity : Activity() {
             if (isActive) {
                 val ivPlay = ImageView(this).apply {
                     val d = getDrawable(R.drawable.ic_play)?.mutate()
-                    d?.setTint(Color.parseColor("#E8C686"))
+                    d?.setTint(Color.parseColor("#AAC7FF"))
                     setImageDrawable(d)
                     layoutParams = LinearLayout.LayoutParams(dp(16), dp(16)).apply {
                         marginStart = dp(6)
@@ -1268,7 +1268,7 @@ class YandexMusicActivity : Activity() {
             } else {
                 val tvIdx = TextView(this).apply {
                     text = "${idx + 1}"
-                    setTextColor(Color.parseColor("#64748B"))
+                    setTextColor(Color.parseColor("#938F99"))
                     textSize = 13f
                     typeface = Typeface.DEFAULT_BOLD
                     gravity = Gravity.CENTER
@@ -1285,7 +1285,7 @@ class YandexMusicActivity : Activity() {
             }
             val tvT = TextView(this).apply {
                 text = tr.title
-                setTextColor(Color.parseColor(if (isActive) "#E8C686" else "#F8FAFC"))
+                setTextColor(Color.parseColor(if (isActive) "#AAC7FF" else "#E5E1E6"))
                 textSize = 14f
                 typeface = if (isActive) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
                 maxLines = 1
@@ -1293,7 +1293,7 @@ class YandexMusicActivity : Activity() {
             }
             val tvA = TextView(this).apply {
                 text = if (tr.album.isNotBlank()) "${tr.artists} · ${tr.album}" else tr.artists
-                setTextColor(Color.parseColor("#94A3B8"))
+                setTextColor(Color.parseColor("#C8C5CF"))
                 textSize = 12f
                 maxLines = 1
                 ellipsize = TextUtils.TruncateAt.END
@@ -1314,7 +1314,7 @@ class YandexMusicActivity : Activity() {
 
             val tvDur = TextView(this).apply {
                 text = formatMs(tr.durationMs)
-                setTextColor(Color.parseColor(if (tr.liked) "#F472B6" else "#94A3B8"))
+                setTextColor(Color.parseColor(if (tr.liked) "#F472B6" else "#C8C5CF"))
                 textSize = 12f
             }
             row.addView(tvDur)
@@ -1353,7 +1353,7 @@ class YandexMusicActivity : Activity() {
         if (passportDialog?.isShowing == true) return
         val dlgHolder = arrayOfNulls<AlertDialog>(1)
         val root = FrameLayout(this).apply {
-            setBackgroundColor(Color.parseColor("#0B0F17"))
+            setBackgroundColor(Color.parseColor("#131316"))
         }
 
         val wv = WebView(this).apply {
@@ -1457,7 +1457,7 @@ class YandexMusicActivity : Activity() {
         }
         val tvCursorHint = TextView(this).apply {
             text = "MENU: курсор  ·  BACK: закрыть"
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             setPadding(0, 0, dp(8), 0)
         }
@@ -1623,7 +1623,7 @@ class YandexMusicActivity : Activity() {
 
     private fun makeTextPill(label: String, onClick: () -> Unit): TextView = TextView(this).apply {
         text = label
-        setTextColor(Color.parseColor("#F1F5F9"))
+        setTextColor(Color.parseColor("#E5E1E6"))
         textSize = 12.5f
         typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
         setPadding(dp(12), dp(7), dp(12), dp(7))
@@ -1672,7 +1672,7 @@ class YandexMusicActivity : Activity() {
             }
             val tv = TextView(this@YandexMusicActivity).apply {
                 text = label
-                setTextColor(Color.parseColor("#F1F5F9"))
+                setTextColor(Color.parseColor("#E5E1E6"))
                 textSize = 12.5f
                 typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
                 maxLines = 1
@@ -1714,7 +1714,7 @@ class YandexMusicActivity : Activity() {
         private var cy = 0f
         private var show = false
         private val outer = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            color = Color.parseColor("#CCE8C686")
+            color = Color.parseColor("#CCAAC7FF")
             style = Paint.Style.STROKE
             strokeWidth = 4f
         }

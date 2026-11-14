@@ -152,7 +152,7 @@ class AliceOverlayManager(private val context: Context) {
             )
         ).apply {
             cornerRadius = dp(24).toFloat()
-            setStroke(dp(1), Color.parseColor("#7AE8C686"))
+            setStroke(dp(1), Color.parseColor("#7AAAC7FF"))
         }
         cardBg = cardShape
 
@@ -194,7 +194,7 @@ class AliceOverlayManager(private val context: Context) {
 
         val dotShape = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
-            setColor(Color.parseColor("#38BDF8"))
+            setColor(Color.parseColor("#AAC7FF"))
         }
         stateDotBg = dotShape
         val dot = View(context).apply {
@@ -206,7 +206,7 @@ class AliceOverlayManager(private val context: Context) {
 
         val stateTv = TextView(context).apply {
             text = "МАКС · СЛУШАЮ"
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -215,7 +215,7 @@ class AliceOverlayManager(private val context: Context) {
 
         val userTv = TextView(context).apply {
             text = ""
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -231,7 +231,7 @@ class AliceOverlayManager(private val context: Context) {
 
         val replyTv = TextView(context).apply {
             text = ""
-            setTextColor(Color.parseColor("#F8FAFC"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 14.5f
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
             maxLines = 2
@@ -279,20 +279,20 @@ class AliceOverlayManager(private val context: Context) {
 
         when (st) {
             "connecting" -> {
-                accent = Color.parseColor("#38BDF8")
-                borderColor = Color.parseColor("#8838BDF8")
+                accent = Color.parseColor("#AAC7FF")
+                borderColor = Color.parseColor("#88AAC7FF")
                 stateLabel = "МАКС · ПОДКЛЮЧЕНИЕ"
                 fallbackReply = "Подключаю голосовой поток..."
             }
             "listening" -> {
-                accent = Color.parseColor("#2DD4BF")
-                borderColor = Color.parseColor("#992DD4BF")
+                accent = Color.parseColor("#86D9A6")
+                borderColor = Color.parseColor("#9986D9A6")
                 stateLabel = "МАКС · СЛУШАЮ"
                 fallbackReply = if (userTxt.isNotEmpty()) "«$userTxt»" else "Говорите, я внимательно слушаю..."
             }
             "thinking" -> {
-                accent = Color.parseColor("#E8C686")
-                borderColor = Color.parseColor("#AAE8C686")
+                accent = Color.parseColor("#AAC7FF")
+                borderColor = Color.parseColor("#AAAAC7FF")
                 stateLabel = "МАКС · ДУМАЮ"
                 fallbackReply = if (userTxt.isNotEmpty()) "Обрабатываю: «$userTxt»" else "Формирую ответ..."
             }
@@ -303,14 +303,14 @@ class AliceOverlayManager(private val context: Context) {
                 fallbackReply = "Отвечаю голосом..."
             }
             "error" -> {
-                accent = Color.parseColor("#F87171")
-                borderColor = Color.parseColor("#AAF87171")
+                accent = Color.parseColor("#FFB4AB")
+                borderColor = Color.parseColor("#AAFFB4AB")
                 stateLabel = "МАКС · ОШИБКА"
                 fallbackReply = "Не удалось выполнить запрос"
             }
             else -> {
-                accent = Color.parseColor("#E8C686")
-                borderColor = Color.parseColor("#7AE8C686")
+                accent = Color.parseColor("#AAC7FF")
+                borderColor = Color.parseColor("#7AAAC7FF")
                 stateLabel = "МАКС"
                 fallbackReply = ""
             }

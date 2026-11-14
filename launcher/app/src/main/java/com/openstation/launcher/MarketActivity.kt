@@ -188,7 +188,7 @@ class MarketActivity : Activity() {
                 GradientDrawable.Orientation.TOP_BOTTOM,
                 intArrayOf(
                     Color.parseColor("#88050811"),
-                    Color.parseColor("#44070B14"),
+                    Color.parseColor("#44131316"),
                     Color.parseColor("#A604070F")
                 )
             )
@@ -255,7 +255,7 @@ class MarketActivity : Activity() {
                 GradientDrawable.Orientation.TL_BR,
                 intArrayOf(Color.parseColor("#D918263D"), Color.parseColor("#E60B1220"))
             ).apply {
-                setStroke(dp(1), Color.parseColor("#66E8C686"))
+                setStroke(dp(1), Color.parseColor("#66AAC7FF"))
                 cornerRadius = dp(11).toFloat()
             }
             layoutParams = LinearLayout.LayoutParams(dp(36), dp(36)).apply { marginEnd = dp(9) }
@@ -281,7 +281,7 @@ class MarketActivity : Activity() {
         })
         titleRow.addView(TextView(this).apply {
             text = "APPS"
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 13f
             typeface = Typeface.DEFAULT_BOLD
             letterSpacing = 0.04f
@@ -290,7 +290,7 @@ class MarketActivity : Activity() {
 
         tvDaemonPill = TextView(this).apply {
             text = "○ Проверка службы..."
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 10f
             maxLines = 1
         }
@@ -388,7 +388,7 @@ class MarketActivity : Activity() {
         }
         val hintText = TextView(this).apply {
             text = "OK — открыть  ·  ◀ ▶ — разделы  ·  ▲ ▼ — навигация  ·  Назад — закрыть"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             layoutParams = FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -398,7 +398,7 @@ class MarketActivity : Activity() {
         }
         tvCatalogSourceHint = TextView(this).apply {
             text = "OpenStation Launcher · Маркет v1.4"
-            setTextColor(Color.parseColor("#64748B"))
+            setTextColor(Color.parseColor("#938F99"))
             textSize = 11f
             layoutParams = FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -453,13 +453,13 @@ class MarketActivity : Activity() {
         val preferRoot = MarketPrefs.isPreferDaemonRoot(this)
         if (preferRoot && daemonRootAlive) {
             tvDaemonPill.text = "● Root-установка (openstationd)"
-            tvDaemonPill.setTextColor(Color.parseColor("#34D399"))
+            tvDaemonPill.setTextColor(Color.parseColor("#86D9A6"))
         } else if (daemonRootAlive) {
             tvDaemonPill.text = "● Служба активна · Системный режим"
-            tvDaemonPill.setTextColor(Color.parseColor("#38BDF8"))
+            tvDaemonPill.setTextColor(Color.parseColor("#AAC7FF"))
         } else {
             tvDaemonPill.text = "○ Системный установщик Android"
-            tvDaemonPill.setTextColor(Color.parseColor("#E8C686"))
+            tvDaemonPill.setTextColor(Color.parseColor("#AAC7FF"))
         }
 
         val updates = computeAvailableUpdates()
@@ -490,7 +490,7 @@ class MarketActivity : Activity() {
         for ((t, tv) in tabButtons) {
             val active = (t == tab)
             tv.isSelected = active
-            tv.setTextColor(Color.parseColor(if (active) "#E8C686" else "#CBD5E1"))
+            tv.setTextColor(Color.parseColor(if (active) "#AAC7FF" else "#C8C5CF"))
             tv.typeface = if (active) Typeface.DEFAULT_BOLD else Typeface.create("sans-serif-medium", Typeface.NORMAL)
         }
         renderActiveTab()
@@ -576,7 +576,7 @@ class MarketActivity : Activity() {
                 text = categoryName
                 textSize = 11f
                 isSelected = selected
-                setTextColor(Color.parseColor(if (selected) "#E8C686" else "#CBD5E1"))
+                setTextColor(Color.parseColor(if (selected) "#AAC7FF" else "#C8C5CF"))
                 typeface = if (selected) Typeface.DEFAULT_BOLD else Typeface.create("sans-serif-medium", Typeface.NORMAL)
                 setPadding(dp(11), dp(5), dp(11), dp(5))
                 setBackgroundResource(R.drawable.bg_pill)
@@ -713,7 +713,7 @@ class MarketActivity : Activity() {
         })
         titleCol.addView(TextView(this).apply {
             text = "v${app.versionName} · ${MarketRepository.formatBytes(app.sizeBytes)}"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -721,9 +721,9 @@ class MarketActivity : Activity() {
         })
 
         val statusBadge = when {
-            hasUpdate -> MarketUiKit.createBadgeChip(this, "Обновить", "#0B0F17", "#E8C686", "#FFF1B8")
-            isInstalled -> MarketUiKit.createBadgeChip(this, "Установлено", "#34D399", "#28059669", "#6634D399")
-            else -> MarketUiKit.createBadgeChip(this, "Доступно", "#38BDF8", "#260284C7", "#6638BDF8")
+            hasUpdate -> MarketUiKit.createBadgeChip(this, "Обновить", "#131316", "#AAC7FF", "#FFF1B8")
+            isInstalled -> MarketUiKit.createBadgeChip(this, "Установлено", "#86D9A6", "#28059669", "#6686D9A6")
+            else -> MarketUiKit.createBadgeChip(this, "Доступно", "#AAC7FF", "#260284C7", "#66AAC7FF")
         }
 
         topRow.addView(ivIcon)
@@ -732,7 +732,7 @@ class MarketActivity : Activity() {
 
         val desc = TextView(this).apply {
             text = app.description.ifEmpty { app.packageName }
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12f
             maxLines = 2
             ellipsize = TextUtils.TruncateAt.END
@@ -747,13 +747,13 @@ class MarketActivity : Activity() {
         }
         bottomMeta.addView(TextView(this).apply {
             text = app.category
-            setTextColor(Color.parseColor("#64748B"))
+            setTextColor(Color.parseColor("#938F99"))
             textSize = 10.5f
             layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.START or Gravity.CENTER_VERTICAL)
         })
         bottomMeta.addView(TextView(this).apply {
             text = if (isInstalled) "На станции: v$installedName" else app.packageName
-            setTextColor(Color.parseColor(if (hasUpdate) "#E8C686" else "#64748B"))
+            setTextColor(Color.parseColor(if (hasUpdate) "#AAC7FF" else "#938F99"))
             textSize = 10.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -800,7 +800,7 @@ class MarketActivity : Activity() {
                 subtitle = "${app.packageName} · v$curName → v${app.versionName} (${MarketRepository.formatBytes(app.sizeBytes)})",
                 detail = app.changelog.ifEmpty { app.description },
                 badgeText = "Обновление",
-                badgeColors = Triple("#0B0F17", "#E8C686", "#FFF1B8"),
+                badgeColors = Triple("#131316", "#AAC7FF", "#FFF1B8"),
                 primaryLabel = "Обновить",
                 primaryStyle = PillStyle.GOLD,
                 onPrimary = { startCatalogInstall(app, rowAnchor = it) },
@@ -846,7 +846,7 @@ class MarketActivity : Activity() {
         toggleBar.addView(btnAll)
         toggleBar.addView(TextView(this).apply {
             text = "Найдено: ${installedApps.size}"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
                 marginStart = dp(10)
@@ -867,9 +867,9 @@ class MarketActivity : Activity() {
         for (entry in installedApps) {
             val verLabel = if (entry.versionName.isNotEmpty()) "v${entry.versionName} (${entry.versionCode})" else "build ${entry.versionCode}"
             val badge = when {
-                entry.isProtected -> Triple("#94A3B8", "#331E293B", "#44FFFFFF")
-                entry.isTvApp -> Triple("#38BDF8", "#260284C7", "#6638BDF8")
-                else -> Triple("#C084FC", "#28581C87", "#66A855F7")
+                entry.isProtected -> Triple("#C8C5CF", "#331E293B", "#44FFFFFF")
+                entry.isTvApp -> Triple("#AAC7FF", "#260284C7", "#66AAC7FF")
+                else -> Triple("#C084FC", "#28581C87", "#66AAC7FF")
             }
             val badgeTxt = when {
                 entry.isProtected -> "Система"
@@ -880,7 +880,7 @@ class MarketActivity : Activity() {
             val canLaunch = entry.launchIntent != null && entry.packageName != packageName
             val canDelete = !entry.isProtected
             val row = makeGlassListRow(
-                icon = entry.icon ?: MarketImageLoader.createMonogramDrawable(entry.label, Color.parseColor("#38BDF8"), resources.displayMetrics.density),
+                icon = entry.icon ?: MarketImageLoader.createMonogramDrawable(entry.label, Color.parseColor("#AAC7FF"), resources.displayMetrics.density),
                 title = entry.label,
                 subtitle = "${entry.packageName} · $verLabel",
                 detail = "",
@@ -989,7 +989,7 @@ class MarketActivity : Activity() {
         }
         val tvPath = TextView(this).apply {
             text = currentBrowseDir.absolutePath
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 12.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.START
@@ -1032,12 +1032,12 @@ class MarketActivity : Activity() {
             val subCount = dir.listFiles()?.count { it.isFile && it.name.lowercase(Locale.US).endsWith(".apk") } ?: 0
             val subInfo = if (subCount > 0) "Папка · $subCount APK" else "Папка"
             val row = makeGlassListRow(
-                icon = MarketImageLoader.createMonogramDrawable("📁", Color.parseColor("#E8C686"), resources.displayMetrics.density),
+                icon = MarketImageLoader.createMonogramDrawable("📁", Color.parseColor("#AAC7FF"), resources.displayMetrics.density),
                 title = dir.name,
                 subtitle = subInfo,
                 detail = "",
                 badgeText = "Каталог",
-                badgeColors = Triple("#E8C686", "#26D4AF6A", "#55E8C686"),
+                badgeColors = Triple("#AAC7FF", "#26D4AF6A", "#55AAC7FF"),
                 primaryLabel = "Открыть",
                 primaryStyle = PillStyle.GLASS,
                 onPrimary = {
@@ -1052,12 +1052,12 @@ class MarketActivity : Activity() {
 
         for (apk in apks) {
             val rowHolder = makeGlassListRowWithRefs(
-                icon = MarketImageLoader.createMonogramDrawable("A", Color.parseColor("#38BDF8"), resources.displayMetrics.density),
+                icon = MarketImageLoader.createMonogramDrawable("A", Color.parseColor("#AAC7FF"), resources.displayMetrics.density),
                 title = apk.name,
                 subtitle = MarketRepository.formatBytes(apk.length()),
                 detail = "",
                 badgeText = "APK",
-                badgeColors = Triple("#38BDF8", "#260284C7", "#6638BDF8"),
+                badgeColors = Triple("#AAC7FF", "#260284C7", "#66AAC7FF"),
                 primaryLabel = "Установить",
                 primaryStyle = PillStyle.GOLD,
                 onPrimary = { anchor -> inspectAndConfirmLocalApk(apk, anchor) },
@@ -1114,7 +1114,7 @@ class MarketActivity : Activity() {
         })
         leftCard.addView(TextView(this).apply {
             text = "URL каталога (JSON по HTTPS/HTTP). Оставьте пустым для встроенного каталога."
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             setPadding(0, dp(4), 0, dp(10))
         })
@@ -1122,7 +1122,7 @@ class MarketActivity : Activity() {
         val editUrl = EditText(this).apply {
             setText(MarketPrefs.getCatalogUrl(this@MarketActivity))
             hint = MarketPrefs.DEFAULT_CATALOG_URL
-            setHintTextColor(Color.parseColor("#64748B"))
+            setHintTextColor(Color.parseColor("#938F99"))
             setTextColor(Color.WHITE)
             textSize = 13.5f
             inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
@@ -1131,7 +1131,7 @@ class MarketActivity : Activity() {
             setPadding(dp(14), dp(10), dp(14), dp(10))
             background = GradientDrawable().apply {
                 setColor(Color.parseColor("#D9080F1E"))
-                setStroke(dp(1), Color.parseColor("#4438BDF8"))
+                setStroke(dp(1), Color.parseColor("#44AAC7FF"))
                 cornerRadius = dp(12).toFloat()
             }
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
@@ -1166,7 +1166,7 @@ class MarketActivity : Activity() {
             } else {
                 "○ openstationd не отвечает — используется системный PackageInstaller."
             }
-            setTextColor(Color.parseColor(if (daemonRootAlive) "#34D399" else "#E8C686"))
+            setTextColor(Color.parseColor(if (daemonRootAlive) "#86D9A6" else "#AAC7FF"))
             textSize = 11f
             setPadding(dp(4), 0, 0, dp(12))
         })
@@ -1237,7 +1237,7 @@ class MarketActivity : Activity() {
         }
         sysBox.addView(TextView(this).apply {
             text = "Устройство: ${Build.MODEL} ($abi)\nAndroid ${Build.VERSION.RELEASE} (SDK ${Build.VERSION.SDK_INT})\nСвободно в /data: $availGb"
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 12f
             setLineSpacing(dp(3).toFloat(), 1f)
         })
@@ -1267,7 +1267,7 @@ class MarketActivity : Activity() {
 
         rightCard.addView(TextView(this).apply {
             text = "OpenStation Market v1.4 — встроенный модуль лаунчера.\nКаждый APK перед установкой проходит проверку SHA-256, minSdk и совпадения цифровой подписи."
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             setLineSpacing(dp(2).toFloat(), 1f)
         })
@@ -1344,7 +1344,7 @@ class MarketActivity : Activity() {
         })
         titleCol.addView(TextView(this).apply {
             text = "${app.packageName} · ${app.category}"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12f
         })
         head.addView(iv)
@@ -1362,11 +1362,11 @@ class MarketActivity : Activity() {
         val shortSha = app.sha256.take(12) + "…" + app.sha256.takeLast(8)
         root.addView(TextView(this).apply {
             text = "$verSummary  ·  Размер: ${MarketRepository.formatBytes(app.sizeBytes)}  ·  Android SDK ${app.minSdk}+\n🔒 SHA-256 проверен: $shortSha"
-            setTextColor(Color.parseColor("#38BDF8"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 11.5f
             setLineSpacing(dp(2).toFloat(), 1f)
             setPadding(dp(12), dp(10), dp(12), dp(10))
-            background = MarketUiKit.makeGlassSurface(this@MarketActivity, "#88080F1E", "#2638BDF8", 12)
+            background = MarketUiKit.makeGlassSurface(this@MarketActivity, "#88080F1E", "#26AAC7FF", 12)
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
                 bottomMargin = dp(10)
             }
@@ -1375,7 +1375,7 @@ class MarketActivity : Activity() {
         if (app.description.isNotEmpty()) {
             root.addView(TextView(this).apply {
                 text = app.description
-                setTextColor(Color.parseColor("#E2E8F0"))
+                setTextColor(Color.parseColor("#E5E1E6"))
                 textSize = 13f
                 setLineSpacing(dp(2).toFloat(), 1f)
                 layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
@@ -1386,7 +1386,7 @@ class MarketActivity : Activity() {
         if (app.changelog.isNotEmpty()) {
             root.addView(TextView(this).apply {
                 text = "Что нового: ${app.changelog}"
-                setTextColor(Color.parseColor("#E8C686"))
+                setTextColor(Color.parseColor("#AAC7FF"))
                 textSize = 12f
                 layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
                     bottomMargin = dp(14)
@@ -1469,7 +1469,7 @@ class MarketActivity : Activity() {
             gravity = Gravity.CENTER_VERTICAL
         }
         head.addView(ImageView(this).apply {
-            setImageDrawable(info.icon ?: MarketImageLoader.createMonogramDrawable(info.label, Color.parseColor("#38BDF8"), resources.displayMetrics.density))
+            setImageDrawable(info.icon ?: MarketImageLoader.createMonogramDrawable(info.label, Color.parseColor("#AAC7FF"), resources.displayMetrics.density))
             layoutParams = LinearLayout.LayoutParams(dp(56), dp(56)).apply { marginEnd = dp(14) }
         })
         val titleCol = LinearLayout(this).apply {
@@ -1486,7 +1486,7 @@ class MarketActivity : Activity() {
         })
         titleCol.addView(TextView(this).apply {
             text = "${info.packageName} · v${info.versionName} (${info.versionCode})"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12f
         })
         head.addView(titleCol)
@@ -1501,7 +1501,7 @@ class MarketActivity : Activity() {
         }
         root.addView(TextView(this).apply {
             text = "$statusTxt\nФайл: ${apkFile.name}\nПримечание: для локальных файлов SHA-256 не сверяется с каталогом."
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12.5f
             setLineSpacing(dp(2).toFloat(), 1f)
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
@@ -1543,7 +1543,7 @@ class MarketActivity : Activity() {
         })
         root.addView(TextView(this).apply {
             text = "Пакет: ${entry.packageName}\nВсе данные приложения на станции будут удалены."
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12.5f
             setPadding(0, dp(8), 0, dp(16))
         })
@@ -1617,7 +1617,7 @@ class MarketActivity : Activity() {
                     pb.progress = 100
                     tvTitle.text = "${app.name} — Готово"
                     tvStage.text = "✓ $message"
-                    tvStage.setTextColor(Color.parseColor("#34D399"))
+                    tvStage.setTextColor(Color.parseColor("#86D9A6"))
                     tvStats.text = "Версия v${app.versionName} установлена"
                     btnAction.text = "Закрыть"
                     refreshInstalledListAsync()
@@ -1676,7 +1676,7 @@ class MarketActivity : Activity() {
                     pb.progress = 100
                     tvTitle.text = "$label — Готово"
                     tvStage.text = "✓ $message"
-                    tvStage.setTextColor(Color.parseColor("#34D399"))
+                    tvStage.setTextColor(Color.parseColor("#86D9A6"))
                     btnAction.text = "Закрыть"
                     refreshInstalledListAsync()
                 }
@@ -1718,7 +1718,7 @@ class MarketActivity : Activity() {
         }
         val tvStage = TextView(this).apply {
             text = "Подготовка..."
-            setTextColor(Color.parseColor("#38BDF8"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 13f
             setPadding(0, dp(6), 0, dp(12))
         }
@@ -1732,7 +1732,7 @@ class MarketActivity : Activity() {
         }
         val tvStats = TextView(this).apply {
             text = ""
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             setPadding(0, 0, 0, dp(16))
         }
@@ -1829,7 +1829,7 @@ class MarketActivity : Activity() {
         }
         val tvSub = TextView(this).apply {
             text = subtitle
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1840,7 +1840,7 @@ class MarketActivity : Activity() {
         if (detail.isNotEmpty()) {
             textCol.addView(TextView(this).apply {
                 text = detail
-                setTextColor(Color.parseColor("#CBD5E1"))
+                setTextColor(Color.parseColor("#C8C5CF"))
                 textSize = 11.5f
                 maxLines = 1
                 ellipsize = TextUtils.TruncateAt.END
@@ -1894,7 +1894,7 @@ class MarketActivity : Activity() {
         })
         card.addView(TextView(this).apply {
             text = body
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 13f
             gravity = Gravity.CENTER
             setPadding(0, dp(8), 0, dp(16))
@@ -1912,10 +1912,10 @@ class MarketActivity : Activity() {
     private fun buildSlimBanner(msg: String): View {
         return TextView(this).apply {
             text = "⚠ $msg"
-            setTextColor(Color.parseColor("#FDE68A"))
+            setTextColor(Color.parseColor("#F8E2B0"))
             textSize = 11.5f
             setPadding(dp(14), dp(8), dp(14), dp(8))
-            background = MarketUiKit.makeGlassSurface(this@MarketActivity, "#4D78350F", "#77F59E0B", 12)
+            background = MarketUiKit.makeGlassSurface(this@MarketActivity, "#4D78350F", "#77F0C56A", 12)
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
                 bottomMargin = dp(10)
             }
@@ -1927,7 +1927,7 @@ class MarketActivity : Activity() {
             text = label
             textSize = 11.5f
             isSelected = selected
-            setTextColor(Color.parseColor(if (selected) "#E8C686" else "#CBD5E1"))
+            setTextColor(Color.parseColor(if (selected) "#AAC7FF" else "#C8C5CF"))
             typeface = if (selected) Typeface.DEFAULT_BOLD else Typeface.create("sans-serif-medium", Typeface.NORMAL)
             setPadding(dp(14), dp(6), dp(14), dp(6))
             setBackgroundResource(R.drawable.bg_pill)
@@ -1959,7 +1959,7 @@ class MarketActivity : Activity() {
 
     private fun updateSettingToggleText(tv: TextView, label: String, enabled: Boolean) {
         tv.text = if (enabled) "✓ $label: ВКЛ" else "○ $label: ВЫКЛ"
-        tv.setTextColor(Color.parseColor(if (enabled) "#34D399" else "#CBD5E1"))
+        tv.setTextColor(Color.parseColor(if (enabled) "#86D9A6" else "#C8C5CF"))
     }
 
     // -----------------------------------------------------------------------------------------

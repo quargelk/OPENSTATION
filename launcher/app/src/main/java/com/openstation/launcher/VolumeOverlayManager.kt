@@ -89,17 +89,17 @@ class VolumeOverlayManager(private val context: Context) {
             targetPct = if (muted) 0f else clamped.toFloat()
 
             tvTitle?.text = if (currentMuted) "ЗВУК ВЫКЛЮЧЕН" else "ГРОМКОСТЬ СТАНЦИИ"
-            tvTitle?.setTextColor(Color.parseColor(if (currentMuted) "#FCA5A5" else "#94A3B8"))
+            tvTitle?.setTextColor(Color.parseColor(if (currentMuted) "#FFB4AB" else "#C8C5CF"))
             tvSubtitle?.visibility = View.GONE
             progressBarView?.visibility = View.VISIBLE
             tvPercent?.visibility = View.VISIBLE
             tvPercent?.text = if (currentMuted) "MUTE" else "$clamped%"
-            tvPercent?.setTextColor(Color.parseColor(if (currentMuted) "#F87171" else "#F8FAFC"))
+            tvPercent?.setTextColor(Color.parseColor(if (currentMuted) "#FFB4AB" else "#E5E1E6"))
 
             iconView?.setLevel(clamped, currentMuted)
             progressBarView?.setMuted(currentMuted)
 
-            val accent = if (currentMuted) Color.parseColor("#88F87171") else Color.parseColor("#7800D4FF")
+            val accent = if (currentMuted) Color.parseColor("#88FFB4AB") else Color.parseColor("#78AAC7FF")
             cardBg?.setStroke(dp(1), accent)
 
             animateProgressTo(targetPct)
@@ -110,13 +110,13 @@ class VolumeOverlayManager(private val context: Context) {
         }
     }
 
-    fun showToastPill(title: String, subtitle: String, accentHex: String = "#00D4FF", durationMs: Long = 2800L) {
+    fun showToastPill(title: String, subtitle: String, accentHex: String = "#AAC7FF", durationMs: Long = 2800L) {
         mainHandler.post {
             ensureViews()
             val accent = try {
                 Color.parseColor(accentHex)
             } catch (_: Throwable) {
-                Color.parseColor("#00D4FF")
+                Color.parseColor("#AAC7FF")
             }
             val stroke = Color.argb(135, Color.red(accent), Color.green(accent), Color.blue(accent))
             cardBg?.setStroke(dp(1), stroke)
@@ -167,7 +167,7 @@ class VolumeOverlayManager(private val context: Context) {
             )
         ).apply {
             cornerRadius = dp(24).toFloat()
-            setStroke(dp(1), Color.parseColor("#7800D4FF"))
+            setStroke(dp(1), Color.parseColor("#78AAC7FF"))
         }
         cardBg = bg
 
@@ -196,7 +196,7 @@ class VolumeOverlayManager(private val context: Context) {
 
         val titleTv = TextView(context).apply {
             text = "ГРОМКОСТЬ СТАНЦИИ"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
             typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
             letterSpacing = 0.08f
@@ -207,7 +207,7 @@ class VolumeOverlayManager(private val context: Context) {
 
         val pctTv = TextView(context).apply {
             text = "0%"
-            setTextColor(Color.parseColor("#F8FAFC"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f)
             typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
             gravity = Gravity.END
@@ -222,7 +222,7 @@ class VolumeOverlayManager(private val context: Context) {
 
         val subTv = TextView(context).apply {
             text = ""
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f)
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -364,7 +364,7 @@ class VolumeOverlayManager(private val context: Context) {
         private var levelPct = 0
         private var muted = false
         private var badgeMode = false
-        private var badgeColor = Color.parseColor("#00D4FF")
+        private var badgeColor = Color.parseColor("#AAC7FF")
 
         private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.FILL
@@ -406,7 +406,7 @@ class VolumeOverlayManager(private val context: Context) {
                 return
             }
 
-            paint.color = Color.parseColor(if (muted) "#F87171" else "#E2E8F0")
+            paint.color = Color.parseColor(if (muted) "#FFB4AB" else "#E5E1E6")
             spkPath.reset()
             spkPath.moveTo(w * 0.14f, h * 0.37f)
             spkPath.lineTo(w * 0.30f, h * 0.37f)
@@ -419,13 +419,13 @@ class VolumeOverlayManager(private val context: Context) {
 
             arcPaint.strokeWidth = max(2f, w * 0.075f)
             if (muted) {
-                arcPaint.color = Color.parseColor("#F87171")
+                arcPaint.color = Color.parseColor("#FFB4AB")
                 canvas.drawLine(w * 0.62f, h * 0.34f, w * 0.86f, h * 0.66f, arcPaint)
                 canvas.drawLine(w * 0.86f, h * 0.34f, w * 0.62f, h * 0.66f, arcPaint)
                 return
             }
 
-            arcPaint.color = Color.parseColor("#00D4FF")
+            arcPaint.color = Color.parseColor("#AAC7FF")
             if (levelPct >= 1) {
                 arcRect.set(w * 0.44f, h * 0.34f, w * 0.68f, h * 0.66f)
                 canvas.drawArc(arcRect, -48f, 96f, false, arcPaint)
@@ -435,7 +435,7 @@ class VolumeOverlayManager(private val context: Context) {
                 canvas.drawArc(arcRect, -50f, 100f, false, arcPaint)
             }
             if (levelPct >= 70) {
-                arcPaint.color = Color.parseColor("#A855F7")
+                arcPaint.color = Color.parseColor("#AAC7FF")
                 arcRect.set(w * 0.40f, h * 0.12f, w * 0.92f, h * 0.88f)
                 canvas.drawArc(arcRect, -52f, 104f, false, arcPaint)
             }
@@ -483,8 +483,8 @@ class VolumeOverlayManager(private val context: Context) {
             if (lastW != w || lastMuted != muted) {
                 lastW = w
                 lastMuted = muted
-                val c0 = Color.parseColor(if (muted) "#EF4444" else "#00D4FF")
-                val c1 = Color.parseColor(if (muted) "#F87171" else "#A855F7")
+                val c0 = Color.parseColor(if (muted) "#FFB4AB" else "#AAC7FF")
+                val c1 = Color.parseColor(if (muted) "#FFB4AB" else "#AAC7FF")
                 fillPaint.shader = LinearGradient(0f, 0f, w, 0f, c0, c1, Shader.TileMode.CLAMP)
             }
             rect.set(0f, 0f, max(h, fillW), h)

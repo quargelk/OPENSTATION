@@ -878,7 +878,7 @@ class MainActivity : Activity() {
         }
         tvTopClock = TextView(this).apply {
             text = "--:--"
-            setTextColor(Color.parseColor("#F8FAFC"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 19f
             maxLines = 1
             includeFontPadding = false
@@ -896,7 +896,7 @@ class MainActivity : Activity() {
         }
         tvTopWeather = TextView(this).apply {
             text = ""
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             maxLines = 1
             isFocusable = true
@@ -964,7 +964,7 @@ class MainActivity : Activity() {
                 text = title
                 textSize = 12f
                 typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
-                setTextColor(Color.parseColor("#CBD5E1"))
+                setTextColor(Color.parseColor("#C8C5CF"))
                 gravity = Gravity.CENTER
                 setPadding(dp(16), dp(5), dp(16), dp(5))
                 background = shape
@@ -992,7 +992,7 @@ class MainActivity : Activity() {
         // Right: Compact Status Pill (Optical Spatial Glass)
         tvStatusLine = TextView(this).apply {
             text = "○ Подключение..."
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1276,7 +1276,7 @@ class MainActivity : Activity() {
 
         heroStateDotBg = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
-            setColor(Color.parseColor("#38BDF8"))
+            setColor(Color.parseColor("#AAC7FF"))
         }
         val heroDot = View(this).apply {
             background = heroStateDotBg
@@ -1286,7 +1286,7 @@ class MainActivity : Activity() {
         }
         tvHeroState = TextView(this).apply {
             text = "МАКС · ГОТОВ"
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -1294,7 +1294,7 @@ class MainActivity : Activity() {
         }
         tvHeroUser = TextView(this).apply {
             text = ""
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1310,7 +1310,7 @@ class MainActivity : Activity() {
 
         tvHeroReply = TextView(this).apply {
             text = "Скажите «Макс» или нажмите OK"
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 13.5f
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
             maxLines = 3
@@ -1374,14 +1374,14 @@ class MainActivity : Activity() {
         wLeftCol.addView(eqCard)
 
         // Widget 2: Bluetooth Speaker Quick Card
-        wBtCard = makeGlassWidgetCard("#A855F7") { toggleBtFromWidget() }
+        wBtCard = makeGlassWidgetCard("#AAC7FF") { toggleBtFromWidget() }
         val btHeader = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
         }
         vWidgetBtDotBg = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
-            setColor(Color.parseColor("#64748B"))
+            setColor(Color.parseColor("#938F99"))
         }
         val btDot = View(this).apply {
             background = vWidgetBtDotBg
@@ -1399,7 +1399,7 @@ class MainActivity : Activity() {
         btHeader.addView(tvBtHead)
         tvWidgetBtState = TextView(this).apply {
             text = "Выключен · Нажмите для пары"
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 11.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1423,7 +1423,7 @@ class MainActivity : Activity() {
         }
 
         // Widget 3: Weather Glass Card
-        wWeatherCard = makeGlassWidgetCard("#94A3B8") {
+        wWeatherCard = makeGlassWidgetCard("#C8C5CF") {
             if (LiveOrbState.weatherValid) {
                 weatherOverlay.showWeather(
                     LiveOrbState.weatherTemp,
@@ -1441,7 +1441,7 @@ class MainActivity : Activity() {
         }
         tvWidgetWeatherCity = TextView(this).apply {
             text = "ПОГОДА СТАНЦИИ"
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 10f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -1456,7 +1456,7 @@ class MainActivity : Activity() {
         }
         tvWidgetWeatherDesc = TextView(this).apply {
             text = "Синхронизация..."
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1473,7 +1473,7 @@ class MainActivity : Activity() {
         }
         val tvRemHead = TextView(this).apply {
             text = "ПУЛЬТ YNDX · ПОИСК"
-            setTextColor(Color.parseColor("#34D399"))
+            setTextColor(Color.parseColor("#86D9A6"))
             textSize = 10f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -1481,7 +1481,7 @@ class MainActivity : Activity() {
         }
         tvWidgetRemoteState = TextView(this).apply {
             text = "Нажмите — пульт запищит"
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 11.5f
             maxLines = 1
             setPadding(0, dp(4), 0, 0)
@@ -1496,7 +1496,7 @@ class MainActivity : Activity() {
         // Uncluttered Subtle Bottom Navigation Cue (non-focusable, quiet Spatial OLED aesthetic)
         tvHeroMicroHint = TextView(this).apply {
             text = "◄ ►  экраны    ·    ▼  приложения    ·    удерж. ОК  настройка"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 10.5f
             letterSpacing = 0.04f
             alpha = 0.46f
@@ -1597,7 +1597,7 @@ class MainActivity : Activity() {
         }
         tvHomeSourceBadge = TextView(this).apply {
             text = "ЯНДЕКС МУЗЫКА"
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 10f
             typeface = Typeface.DEFAULT_BOLD
             letterSpacing = 0.08f
@@ -1610,14 +1610,14 @@ class MainActivity : Activity() {
         }
         tvHomeCodecBadge = TextView(this).apply {
             text = ""
-            setTextColor(Color.parseColor("#38BDF8"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 10f
             typeface = Typeface.DEFAULT_BOLD
             visibility = View.GONE
             setPadding(dp(8), dp(3), dp(8), dp(3))
             background = GradientDrawable().apply {
-                setColor(Color.parseColor("#2238BDF8"))
-                setStroke(dp(1), Color.parseColor("#4438BDF8"))
+                setColor(Color.parseColor("#22AAC7FF"))
+                setStroke(dp(1), Color.parseColor("#44AAC7FF"))
                 cornerRadius = dp(999).toFloat()
             }
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
@@ -1626,7 +1626,7 @@ class MainActivity : Activity() {
         }
         tvHomeAuthBadge = TextView(this).apply {
             text = "Проверка входа..."
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1694,7 +1694,7 @@ class MainActivity : Activity() {
         }
         tvHomeTrackArtist = TextView(this).apply {
             text = "Скажите «Макс, включи музыку» или жмите «Моя волна»"
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1708,7 +1708,7 @@ class MainActivity : Activity() {
         }
         tvHomeTrackTime = TextView(this).apply {
             text = "00:00 / 00:00"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             setPadding(0, dp(4), 0, 0)
         }
@@ -1846,7 +1846,7 @@ class MainActivity : Activity() {
         }
         tvDate = TextView(this).apply {
             text = "..."
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 12f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1861,7 +1861,7 @@ class MainActivity : Activity() {
             setPadding(dp(4), dp(4), dp(4), dp(4))
             alpha = 0.94f
             background = GradientDrawable().apply {
-                setColor(Color.parseColor("#F1F5F9"))
+                setColor(Color.parseColor("#E5E1E6"))
                 cornerRadius = dp(10).toFloat()
             }
         }
@@ -1877,20 +1877,20 @@ class MainActivity : Activity() {
         }
         val tvQrLbl = TextView(this).apply {
             text = "Веб-пульт"
-            setTextColor(Color.parseColor("#F1F5F9"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 12.5f
             typeface = Typeface.DEFAULT_BOLD
         }
         tvIpLine = TextView(this).apply {
             text = "127.0.0.1:8080"
-            setTextColor(Color.parseColor("#38BDF8"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 10.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
         }
         val tvQrSub = TextView(this).apply {
             text = "Откройте на телефоне"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 10f
         }
         qrTxtCol.addView(tvQrLbl)
@@ -1908,7 +1908,7 @@ class MainActivity : Activity() {
         }
         stationRingGlowBg = GradientDrawable(
             GradientDrawable.Orientation.TOP_BOTTOM,
-            intArrayOf(Color.parseColor("#24FFFFFF"), Color.parseColor("#1838BDF8"))
+            intArrayOf(Color.parseColor("#24FFFFFF"), Color.parseColor("#18AAC7FF"))
         ).apply {
             shape = GradientDrawable.OVAL
         }
@@ -1945,7 +1945,7 @@ class MainActivity : Activity() {
         }
         tvStationTelemetry = TextView(this).apply {
             text = "Ожидание системы..."
-            setTextColor(Color.parseColor("#CBD5E1"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -1973,7 +1973,7 @@ class MainActivity : Activity() {
         }
         btnOtaUpdate = TextView(this).apply {
             text = "OTA"
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 10.5f
             typeface = Typeface.DEFAULT_BOLD
             setPadding(dp(10), dp(4), dp(10), dp(4))
@@ -2164,7 +2164,7 @@ class MainActivity : Activity() {
         }
         dockStateDotBg = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
-            setColor(Color.parseColor("#38BDF8"))
+            setColor(Color.parseColor("#AAC7FF"))
         }
         val dockDot = View(this).apply {
             background = dockStateDotBg
@@ -2174,7 +2174,7 @@ class MainActivity : Activity() {
         }
         tvDockState = TextView(this).apply {
             text = "МАКС · ГОТОВ"
-            setTextColor(Color.parseColor("#E8C686"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -2182,7 +2182,7 @@ class MainActivity : Activity() {
         }
         tvDockMusic = TextView(this).apply {
             text = ""
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -2198,7 +2198,7 @@ class MainActivity : Activity() {
 
         tvDockReply = TextView(this).apply {
             text = "Скажите «Макс» или нажмите сюда для вопроса"
-            setTextColor(Color.parseColor("#F8FAFC"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 13.5f
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
             maxLines = 2
@@ -2432,22 +2432,22 @@ class MainActivity : Activity() {
 
         when (st) {
             "connecting" -> {
-                accent = Color.parseColor("#38BDF8")
-                borderColor = Color.parseColor("#8838BDF8")
+                accent = Color.parseColor("#AAC7FF")
+                borderColor = Color.parseColor("#88AAC7FF")
                 stateLabel = "МАКС · ПОДКЛЮЧЕНИЕ"
                 heroFallback = "Подключаю голосовой поток..."
                 dockFallback = "Подключаю голосовой поток..."
             }
             "listening" -> {
-                accent = Color.parseColor("#2DD4BF")
-                borderColor = Color.parseColor("#992DD4BF")
+                accent = Color.parseColor("#86D9A6")
+                borderColor = Color.parseColor("#9986D9A6")
                 stateLabel = "МАКС · СЛУШАЮ"
                 heroFallback = "Говорите, я внимательно слушаю..."
                 dockFallback = "Говорите, я внимательно слушаю..."
             }
             "thinking" -> {
-                accent = Color.parseColor("#E8C686")
-                borderColor = Color.parseColor("#AAE8C686")
+                accent = Color.parseColor("#AAC7FF")
+                borderColor = Color.parseColor("#AAAAC7FF")
                 stateLabel = "МАКС · ДУМАЮ"
                 heroFallback = if (userTxt.isNotEmpty()) "Обрабатываю: «$userTxt»" else "Формирую ответ..."
                 dockFallback = if (userTxt.isNotEmpty()) "Обрабатываю: «$userTxt»" else "Формирую ответ..."
@@ -2460,14 +2460,14 @@ class MainActivity : Activity() {
                 dockFallback = "Отвечаю голосом..."
             }
             "error" -> {
-                accent = Color.parseColor("#F87171")
-                borderColor = Color.parseColor("#AAF87171")
+                accent = Color.parseColor("#FFB4AB")
+                borderColor = Color.parseColor("#AAFFB4AB")
                 stateLabel = "МАКС · ОШИБКА"
                 heroFallback = "Не удалось выполнить запрос"
                 dockFallback = "Ошибка ассистента"
             }
             else -> {
-                accent = if (assistantEnabled) Color.parseColor("#E2E8F0") else Color.parseColor("#64748B")
+                accent = if (assistantEnabled) Color.parseColor("#E5E1E6") else Color.parseColor("#938F99")
                 borderColor = Color.parseColor("#18FFFFFF")
                 stateLabel = if (assistantEnabled) "МАКС · ГОТОВ" else "МАКС · ВЫКЛЮЧЕН"
                 heroFallback = if (assistantEnabled) "Макс готов · Нажмите OK" else "Микрофон выключен · Нажмите OK"
@@ -2501,7 +2501,7 @@ class MainActivity : Activity() {
             tvHeroReply.gravity = Gravity.CENTER_HORIZONTAL
             tvHeroReply.textSize = 13.5f
             tvHeroReply.text = heroFallback
-            tvHeroReply.setTextColor(Color.parseColor("#CBD5E1"))
+            tvHeroReply.setTextColor(Color.parseColor("#C8C5CF"))
         } else {
             heroReplyHeader.visibility = View.VISIBLE
             (heroReplyCard.layoutParams as? FrameLayout.LayoutParams)?.let { lp ->
@@ -2526,14 +2526,14 @@ class MainActivity : Activity() {
             val heroBody = display.ifEmpty { heroFallback }
             tvHeroReply.text = heroBody
             tvHeroReply.setTextColor(
-                if (display.isNotEmpty()) Color.parseColor("#F8FAFC") else Color.parseColor("#CBD5E1")
+                if (display.isNotEmpty()) Color.parseColor("#E5E1E6") else Color.parseColor("#C8C5CF")
             )
         }
 
         val dockBody = display.ifEmpty { dockFallback }
         tvDockReply.text = dockBody
         tvDockReply.setTextColor(
-            if (display.isNotEmpty()) Color.parseColor("#F8FAFC") else Color.parseColor("#CBD5E1")
+            if (display.isNotEmpty()) Color.parseColor("#E5E1E6") else Color.parseColor("#C8C5CF")
         )
 
         if (currentPage != 0) {
@@ -2556,7 +2556,7 @@ class MainActivity : Activity() {
         setPadding(dp(2), 0, 0, dp(8))
         val iv = ImageView(this@MainActivity).apply {
             val d = getDrawable(iconRes)?.mutate()
-            d?.setTint(Color.parseColor("#94A3B8"))
+            d?.setTint(Color.parseColor("#C8C5CF"))
             setImageDrawable(d)
             scaleType = ImageView.ScaleType.FIT_CENTER
             layoutParams = LinearLayout.LayoutParams(dp(14), dp(14)).apply {
@@ -2565,7 +2565,7 @@ class MainActivity : Activity() {
         }
         val tv = TextView(this@MainActivity).apply {
             text = label.uppercase(Locale.getDefault())
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 10.5f
             letterSpacing = 0.09f
             typeface = Typeface.DEFAULT_BOLD
@@ -2597,7 +2597,7 @@ class MainActivity : Activity() {
         }
         val iv = ImageView(this).apply {
             setImageResource(iconRes)
-            setColorFilter(Color.parseColor("#E2E8F0"), PorterDuff.Mode.SRC_IN)
+            setColorFilter(Color.parseColor("#E5E1E6"), PorterDuff.Mode.SRC_IN)
             scaleType = ImageView.ScaleType.FIT_CENTER
             layoutParams = LinearLayout.LayoutParams(dp(16), dp(16)).apply {
                 marginEnd = dp(8)
@@ -2605,7 +2605,7 @@ class MainActivity : Activity() {
         }
         val tv = TextView(this).apply {
             text = initialText
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 11.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -2651,7 +2651,7 @@ class MainActivity : Activity() {
 
             val iv = ImageView(this@MainActivity).apply {
                 val d = getDrawable(iconRes)?.mutate()
-                if (d != null && gold) d.setTint(Color.parseColor("#0B0F17"))
+                if (d != null && gold) d.setTint(Color.parseColor("#131316"))
                 setImageDrawable(d)
                 scaleType = ImageView.ScaleType.FIT_CENTER
                 layoutParams = LinearLayout.LayoutParams(dp(14), dp(14)).apply {
@@ -2660,7 +2660,7 @@ class MainActivity : Activity() {
             }
             val tv = TextView(this@MainActivity).apply {
                 text = label
-                setTextColor(Color.parseColor(if (gold) "#0B0F17" else "#F1F5F9"))
+                setTextColor(Color.parseColor(if (gold) "#131316" else "#E5E1E6"))
                 textSize = 11.5f
                 typeface = if (gold) Typeface.DEFAULT_BOLD else Typeface.create("sans-serif-medium", Typeface.NORMAL)
                 maxLines = 1
@@ -2693,7 +2693,7 @@ class MainActivity : Activity() {
             val iv = ImageView(this@MainActivity).apply {
                 setImageResource(iconRes)
                 if (!isSprite) {
-                    setColorFilter(Color.parseColor("#E2E8F0"), PorterDuff.Mode.SRC_IN)
+                    setColorFilter(Color.parseColor("#E5E1E6"), PorterDuff.Mode.SRC_IN)
                 }
                 scaleType = ImageView.ScaleType.FIT_CENTER
                 val iconSz = if (isSprite) dp(24) else dp(22)
@@ -2703,7 +2703,7 @@ class MainActivity : Activity() {
             }
             val tv = TextView(this@MainActivity).apply {
                 text = label
-                setTextColor(Color.parseColor("#E2E8F0"))
+                setTextColor(Color.parseColor("#E5E1E6"))
                 textSize = 10.5f
                 gravity = Gravity.CENTER
                 maxLines = 1
@@ -2956,7 +2956,7 @@ class MainActivity : Activity() {
         }
         val tvName = TextView(this).apply {
             text = app.label
-            setTextColor(Color.parseColor("#F1F5F9"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 12f
             gravity = Gravity.CENTER
             typeface = Typeface.create("sans-serif-medium", if (isPinnedApps || app.isVirtual) Typeface.BOLD else Typeface.NORMAL)
@@ -3123,7 +3123,7 @@ class MainActivity : Activity() {
                 "minimal" -> {
                     tvClock.typeface = Typeface.create("sans-serif-thin", Typeface.NORMAL)
                     tvClock.setShadowLayer(0f, 0f, 0f, Color.TRANSPARENT)
-                    tvClock.setTextColor(Color.parseColor("#E2E8F0"))
+                    tvClock.setTextColor(Color.parseColor("#E5E1E6"))
                 }
                 "bold" -> {
                     tvClock.typeface = Typeface.create("sans-serif-black", Typeface.BOLD)
@@ -3133,11 +3133,11 @@ class MainActivity : Activity() {
                 "neon" -> {
                     tvClock.typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
                     tvClock.setTextColor(Color.parseColor("#E0F2FE"))
-                    tvClock.setShadowLayer(18f, 0f, 0f, Color.parseColor("#00D4FF"))
+                    tvClock.setShadowLayer(18f, 0f, 0f, Color.parseColor("#AAC7FF"))
                 }
                 "retro" -> {
                     tvClock.typeface = Typeface.MONOSPACE
-                    tvClock.setTextColor(Color.parseColor("#E2E8F0"))
+                    tvClock.setTextColor(Color.parseColor("#E5E1E6"))
                     tvClock.setShadowLayer(8f, 0f, 0f, Color.parseColor("#28FFFFFF"))
                 }
                 else -> {
@@ -3440,10 +3440,10 @@ class MainActivity : Activity() {
             if (forceViews || glowKey != lastGlowStateKey) {
                 lastGlowStateKey = glowKey
                 val glowColors = when {
-                    astBusy -> intArrayOf(Color.parseColor("#4438BDF8"), Color.parseColor("#33818CF8"))
+                    astBusy -> intArrayOf(Color.parseColor("#44AAC7FF"), Color.parseColor("#33AAC7FF"))
                     ringMode == "off" -> intArrayOf(Color.parseColor("#0DFFFFFF"), Color.parseColor("#00FFFFFF"))
-                    ringMode == "solid" -> intArrayOf(Color.parseColor("#2AFFFFFF"), Color.parseColor("#1494A3B8"))
-                    else -> intArrayOf(Color.parseColor("#24FFFFFF"), Color.parseColor("#1838BDF8"))
+                    ringMode == "solid" -> intArrayOf(Color.parseColor("#2AFFFFFF"), Color.parseColor("#14C8C5CF"))
+                    else -> intArrayOf(Color.parseColor("#24FFFFFF"), Color.parseColor("#18AAC7FF"))
                 }
                 stationRingGlowBg?.colors = glowColors
             }
@@ -3531,11 +3531,11 @@ class MainActivity : Activity() {
             when {
                 err.isNotBlank() -> {
                     tvHomeAuthBadge.text = "⚠ $errClean"
-                    tvHomeAuthBadge.setTextColor(Color.parseColor("#FCA5A5"))
+                    tvHomeAuthBadge.setTextColor(Color.parseColor("#FFB4AB"))
                 }
                 snap.buffering -> {
                     tvHomeAuthBadge.text = "Загрузка потока..."
-                    tvHomeAuthBadge.setTextColor(Color.parseColor("#CBD5E1"))
+                    tvHomeAuthBadge.setTextColor(Color.parseColor("#C8C5CF"))
                 }
                 snap.account.loggedIn -> {
                     val nm = snap.account.login.ifBlank { snap.account.fullName.ifBlank { "OK" } }
@@ -3545,7 +3545,7 @@ class MainActivity : Activity() {
                 }
                 else -> {
                     tvHomeAuthBadge.text = "Нужен вход · нажмите «Плеер»"
-                    tvHomeAuthBadge.setTextColor(Color.parseColor("#94A3B8"))
+                    tvHomeAuthBadge.setTextColor(Color.parseColor("#C8C5CF"))
                 }
             }
 
@@ -3722,17 +3722,17 @@ class MainActivity : Activity() {
                 busy -> {
                     btnOtaUpdate.text = "⏳ $pct%"
                     btnOtaUpdate.setBackgroundResource(R.drawable.bg_pill)
-                    btnOtaUpdate.setTextColor(Color.parseColor("#38BDF8"))
+                    btnOtaUpdate.setTextColor(Color.parseColor("#AAC7FF"))
                 }
                 avail -> {
                     btnOtaUpdate.text = if (latestVer.isNotBlank()) "⬇ v$latestVer" else "⬇ Обновить"
                     btnOtaUpdate.setBackgroundResource(R.drawable.bg_pill_gold)
-                    btnOtaUpdate.setTextColor(Color.parseColor("#0B0F17"))
+                    btnOtaUpdate.setTextColor(Color.parseColor("#131316"))
                 }
                 else -> {
                     btnOtaUpdate.text = "⬇ OTA"
                     btnOtaUpdate.setBackgroundResource(R.drawable.bg_pill)
-                    btnOtaUpdate.setTextColor(Color.parseColor("#E2E8F0"))
+                    btnOtaUpdate.setTextColor(Color.parseColor("#E5E1E6"))
                 }
             }
         }
@@ -3815,7 +3815,7 @@ class MainActivity : Activity() {
             setPadding(dp(22), dp(16), dp(22), dp(8))
         }
         val statusTv = TextView(this).apply {
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 13.5f
             setLineSpacing(dp(3).toFloat(), 1.0f)
         }
@@ -4047,7 +4047,7 @@ class MainActivity : Activity() {
         if (::tvWidgetBtState.isInitialized && ::vWidgetBtDotBg.isInitialized) {
             when {
                 btDiscoverableState -> {
-                    vWidgetBtDotBg.setColor(Color.parseColor("#00D4FF"))
+                    vWidgetBtDotBg.setColor(Color.parseColor("#AAC7FF"))
                     tvWidgetBtState.text = "Поиск пары: OpenStation Max"
                 }
                 btEnabledState -> {
@@ -4055,7 +4055,7 @@ class MainActivity : Activity() {
                     tvWidgetBtState.text = "Включена · Готова к музыке"
                 }
                 else -> {
-                    vWidgetBtDotBg.setColor(Color.parseColor("#64748B"))
+                    vWidgetBtDotBg.setColor(Color.parseColor("#938F99"))
                     tvWidgetBtState.text = "Выключена · Нажмите"
                 }
             }
@@ -4387,7 +4387,7 @@ class MainActivity : Activity() {
         }
         val tvSub = TextView(this).apply {
             text = "OPENSTATION APPS закреплён первым  ·  Удерживайте OK на плитке для меню (переместить, скрыть, удалить, инфо)"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             setPadding(0, dp(2), 0, 0)
         }
@@ -4396,7 +4396,7 @@ class MainActivity : Activity() {
 
         tvDrawerStatusPill = TextView(this).apply {
             text = "Список приложений"
-            setTextColor(Color.parseColor("#E2E8F0"))
+            setTextColor(Color.parseColor("#E5E1E6"))
             textSize = 11.5f
             typeface = Typeface.DEFAULT_BOLD
             setPadding(dp(14), dp(6), dp(14), dp(6))
@@ -4435,7 +4435,7 @@ class MainActivity : Activity() {
 
         val footerHint = TextView(this).apply {
             text = "▲ или BACK — вернуться на рабочий стол с Максом"
-            setTextColor(Color.parseColor("#64748B"))
+            setTextColor(Color.parseColor("#938F99"))
             textSize = 11f
             gravity = Gravity.CENTER
             setPadding(0, dp(10), 0, 0)
@@ -4555,7 +4555,7 @@ class MainActivity : Activity() {
         }
         val tvSub = TextView(this).apply {
             text = "Обои с оптическим преломлением Liquid Glass · Модульные виджеты рабочего стола"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             setPadding(0, dp(2), 0, dp(10))
         }
@@ -4645,7 +4645,7 @@ class MainActivity : Activity() {
             }
             val tvS = TextView(this).apply {
                 text = theme.subtitle
-                setTextColor(Color.parseColor("#94A3B8"))
+                setTextColor(Color.parseColor("#C8C5CF"))
                 textSize = 9.5f
                 maxLines = 1
             }
@@ -4734,7 +4734,7 @@ class MainActivity : Activity() {
             }
             val tvDesc = TextView(this).apply {
                 text = desc
-                setTextColor(Color.parseColor("#94A3B8"))
+                setTextColor(Color.parseColor("#C8C5CF"))
                 textSize = 9.5f
                 maxLines = 1
             }
@@ -4748,10 +4748,10 @@ class MainActivity : Activity() {
             }
             fun updatePill() {
                 pill.text = if (enabled) "ВКЛ" else "ВЫКЛ"
-                pill.setTextColor(Color.parseColor(if (enabled) "#090D16" else "#94A3B8"))
+                pill.setTextColor(Color.parseColor(if (enabled) "#090D16" else "#C8C5CF"))
                 pill.background = GradientDrawable().apply {
                     cornerRadius = dp(999).toFloat()
-                    setColor(Color.parseColor(if (enabled) "#F1F5F9" else "#1E293B"))
+                    setColor(Color.parseColor(if (enabled) "#E5E1E6" else "#1E293B"))
                     if (!enabled) setStroke(dp(1), Color.parseColor("#2AFFFFFF"))
                 }
             }
@@ -4966,7 +4966,7 @@ class MainActivity : Activity() {
                 isSysPkg -> "Системное приложение"
                 else -> app.pkg
             }
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 9.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -4986,7 +4986,7 @@ class MainActivity : Activity() {
         panel.addView(div)
 
         var firstBtn: View? = null
-        fun addMenuAction(label: String, accentHex: String = "#F8FAFC", onAction: () -> Unit) {
+        fun addMenuAction(label: String, accentHex: String = "#E5E1E6", onAction: () -> Unit) {
             val btn = TextView(this).apply {
                 text = label
                 setTextColor(Color.parseColor(accentHex))
@@ -5029,17 +5029,17 @@ class MainActivity : Activity() {
             addMenuAction("Изменить место (переместить)", "#7DD3FC") {
                 startReorderMode(app)
             }
-            addMenuAction("Скрыть приложение", "#CBD5E1") {
+            addMenuAction("Скрыть приложение", "#C8C5CF") {
                 hideAppPackage(app)
             }
         }
         if (!app.isVirtual) {
             if (!isSysPkg) {
-                addMenuAction("Удалить приложение", "#FCA5A5") {
+                addMenuAction("Удалить приложение", "#FFB4AB") {
                     uninstallAppEntry(app)
                 }
             } else {
-                addMenuAction("Параметры пакета", "#FCA5A5") {
+                addMenuAction("Параметры пакета", "#FFB4AB") {
                     try {
                         startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
                             data = Uri.parse("package:${app.pkg}")
@@ -5049,7 +5049,7 @@ class MainActivity : Activity() {
                 }
             }
         }
-        addMenuAction("О приложении", "#E2E8F0") {
+        addMenuAction("О приложении", "#E5E1E6") {
             showAppInfoModal(app)
         }
 
@@ -5235,7 +5235,7 @@ class MainActivity : Activity() {
         }
         val tvS = TextView(this).apply {
             text = "Нажмите на приложение, чтобы вернуть его в список"
-            setTextColor(Color.parseColor("#94A3B8"))
+            setTextColor(Color.parseColor("#C8C5CF"))
             textSize = 11.5f
             setPadding(0, dp(2), 0, dp(10))
         }
@@ -5336,7 +5336,7 @@ class MainActivity : Activity() {
         }
         val tvPkg = TextView(this).apply {
             text = if (app.isVirtual) "Встроенный модуль OpenStation Max" else app.pkg
-            setTextColor(Color.parseColor("#38BDF8"))
+            setTextColor(Color.parseColor("#AAC7FF"))
             textSize = 11.5f
         }
         titleCol.addView(tvTitle)
@@ -5380,13 +5380,13 @@ class MainActivity : Activity() {
             }
             val tk = TextView(this).apply {
                 text = k
-                setTextColor(Color.parseColor("#94A3B8"))
+                setTextColor(Color.parseColor("#C8C5CF"))
                 textSize = 12f
                 layoutParams = LinearLayout.LayoutParams(dp(120), ViewGroup.LayoutParams.WRAP_CONTENT)
             }
             val tv = TextView(this).apply {
                 text = v
-                setTextColor(Color.parseColor("#F1F5F9"))
+                setTextColor(Color.parseColor("#E5E1E6"))
                 textSize = 12f
                 typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
                 layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
