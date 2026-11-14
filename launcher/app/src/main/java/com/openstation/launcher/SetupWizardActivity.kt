@@ -239,7 +239,7 @@ class SetupWizardActivity : Activity() {
         titleCol.addView(tvTitle)
         titleCol.addView(tvSub)
 
-        val stepLabels = arrayOf("1. Старт", "2. Алиса", "3. Музыка", "4. Свет", "5. Готово")
+        val stepLabels = arrayOf("1. Старт", "2. Макс", "3. Музыка", "4. Свет", "5. Готово")
         val stepsRow = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
@@ -330,7 +330,7 @@ class SetupWizardActivity : Activity() {
             typeface = Typeface.DEFAULT_BOLD
         }
         tvOrbCaption = TextView(this).apply {
-            text = "Алиса и сервер готовы"
+            text = "Макс и сервер готовы"
             setTextColor(Color.WHITE)
             textSize = 13.5f
             typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
@@ -349,7 +349,7 @@ class SetupWizardActivity : Activity() {
         tvChkDaemon = makeCheckRow("● Службы станции")
         tvChkDns = makeCheckRow("● Private DNS (dns.comss.one)")
         tvChkGemini = makeCheckRow("● Ключ Gemini Live API")
-        tvChkKws = makeCheckRow("● Офлайн фраза «Алиса»")
+        tvChkKws = makeCheckRow("● Офлайн фраза «Макс»")
         tvChkMusic = makeCheckRow("● Яндекс Музыка (опц.)")
         listOf(tvChkDaemon, tvChkDns, tvChkGemini, tvChkKws, tvChkMusic).forEach { chkBox.addView(it) }
         leftCard.addView(chkBox)
@@ -595,8 +595,8 @@ class SetupWizardActivity : Activity() {
     private fun buildStep2Pane(): ScrollView {
         val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         col.addView(makePaneHeading(
-            "Шаг 2 · Голосовой ассистент «Алиса» (Gemini Live)",
-            "Офлайн-распознавание фразы «Алиса» + двусторонний голосовой ИИ без облака Яндекса."
+            "Шаг 2 · Голосовой ассистент «Макс» (Gemini Live)",
+            "Офлайн-распознавание фразы «Макс» + двусторонний голосовой ИИ без облака Яндекса."
         ))
 
         tvStep2GeminiStatus = TextView(this).apply {
@@ -627,9 +627,9 @@ class SetupWizardActivity : Activity() {
         keyBtns.addView(makeActionPill("⚡ Проверить Gemini Live", goldHighlight = true) {
             testGeminiLiveConnection()
         }.apply { (layoutParams as LinearLayout.LayoutParams).marginEnd = dp(8) })
-        keyBtns.addView(makeActionPill("🎤 Разбудить Алису") {
+        keyBtns.addView(makeActionPill("🎤 Разбудить Макса") {
             postAsync("http://127.0.0.1:8080/api/assistant/trigger", """{"reason":"wizard"}""")
-            Toast.makeText(this, "Алиса слушает...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Макс слушает...", Toast.LENGTH_SHORT).show()
         })
         col.addView(keyBtns)
 
@@ -657,7 +657,7 @@ class SetupWizardActivity : Activity() {
         }
         col.addView(voiceRow)
 
-        col.addView(makeSubLabel("Характер Алисы"))
+        col.addView(makeSubLabel("Характер Макса"))
         val promptRow = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
@@ -668,17 +668,17 @@ class SetupWizardActivity : Activity() {
             Triple(
                 "universal",
                 "Универсальная",
-                "Ты — голосовой ассистент Алиса на умной колонке Яндекс Станция Макс с открытой прошивкой OpenStation Max (полный root-доступ и живой доступ в интернет). Отвечай по-русски живо, дружелюбно, естественно и кратко (1-3 предложения, если не просят подробнее). Обязательно используй локальные инструменты: web_search, get_weather, fetch_url, set_volume, set_eq_preset, set_audio_route, set_led_ring, manage_timer, tv_hdmi_cec, remote_control, music_control и manage_apps."
+                "Ты — голосовой помощник Макс на умной колонке Яндекс Станция Макс с открытой прошивкой OpenStation Max (полный root-доступ и живой доступ в интернет). Отвечай по-русски живо, дружелюбно, естественно и кратко (1-3 предложения, если не просят подробнее). Обязательно используй локальные инструменты: web_search, get_weather, fetch_url, set_volume, set_eq_preset, set_audio_route, set_led_ring, manage_timer, tv_hdmi_cec, remote_control, music_control и manage_apps."
             ),
             Triple(
                 "concise",
                 "Краткая и чёткая",
-                "Ты — голосовой ассистент Алиса на Станции Макс. Отвечай максимально кратко и по делу на русском языке (1-2 предложения), сразу выполняй команды управления музыкой, громкостью, ТВ, подсветкой и поиском через доступные инструменты."
+                "Ты — голосовой помощник Макс на Станции Макс. Отвечай максимально кратко и по делу на русском языке (1-2 предложения), сразу выполняй команды управления музыкой, громкостью, ТВ, подсветкой и поиском через доступные инструменты."
             ),
             Triple(
                 "witty",
                 "Дружелюбная с юмором",
-                "Ты — весёлая и остроумная Алиса на Станции Макс. Общайся по-русски тепло, живо и иногда с лёгкой шуткой, оставаясь полезной и используя все встроенные инструменты колонки для музыки, погоды, ТВ и умного дома."
+                "Ты — весёлый и остроумный Макс на Станции Макс. Общайся по-русски тепло, живо и иногда с лёгкой шуткой, оставаясь полезной и используя все встроенные инструменты колонки для музыки, погоды, ТВ и умного дома."
             )
         )
         presets.forEach { (key, label, fullPrompt) ->
@@ -711,7 +711,7 @@ class SetupWizardActivity : Activity() {
         col.addView(proxyRow)
 
         tvStep2KwsLive = TextView(this).apply {
-            text = "Офлайн Wake Word: ожидание — попробуйте сказать вслух «Алиса»!"
+            text = "Офлайн Wake Word: ожидание — попробуйте сказать вслух «Макс»!"
             setTextColor(Color.parseColor("#CBD5E1"))
             textSize = 11.5f
             setPadding(dp(10), dp(7), dp(10), dp(7))
@@ -921,7 +921,7 @@ class SetupWizardActivity : Activity() {
             }
         }
         listOf(
-            "assistant" to "Алиса (Gemini)",
+            "assistant" to "Макс (Gemini)",
             "wyoming" to "Home Assistant",
             "play_pause" to "Пауза / Плей",
             "led_cycle" to "Смена подсветки"
@@ -971,7 +971,7 @@ class SetupWizardActivity : Activity() {
         val col = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         col.addView(makePaneHeading(
             "Шаг 5 · Прошивка настроена и готова!",
-            "Теперь Станция Макс полностью автономна. Нажмите «Завершить» внизу для входа на экран «Сфера»."
+            "Теперь Станция Макс полностью автономна. Нажмите «Завершить» внизу для входа на экран «Макс»."
         ))
 
         tvStep5Summary = TextView(this).apply {
@@ -993,9 +993,9 @@ class SetupWizardActivity : Activity() {
 
         col.addView(makeSubLabel("Памятка по управлению"))
         val cheats = listOf(
-            "🎙 «Алиса, включи музыку»" to "Нативно запустит «Мою волну» Яндекса прямо в лаунчере.",
-            "◀ / ▶ Экраны BORK × Duo" to "Плавный морфинг: «Сфера» ↔ «Музыка и ТВ» ↔ «Станция».",
-            "✨ Системный оверлей" to "Вызов «Алисы» поверх YouTube или любого приложения выводит живую сферу внизу.",
+            "🎙 «Макс, включи музыку»" to "Нативно запустит «Мою волну» Яндекса прямо в лаунчере.",
+            "◀ / ▶ Экраны BORK × Duo" to "Плавный морфинг: «Макс» ↔ «Музыка и ТВ» ↔ «Станция».",
+            "✨ Системный оверлей" to "Вызов «Макса» поверх YouTube или любого приложения выводит живую сферу внизу.",
             "☁ Автономный пульт и OTA" to "Пульт по http://<IP>:8080 или station-max.local; обновления приходят с GitHub."
         )
         for (i in cheats.indices step 2) {
@@ -1288,9 +1288,9 @@ class SetupWizardActivity : Activity() {
 
         tvOrbCaption.text = when (LiveOrbState.assistantState) {
             "listening" -> "Слушает..."
-            "speaking" -> "Алиса говорит"
+            "speaking" -> "Макс говорит"
             "thinking" -> "Думает..."
-            else -> if (curHasKey) "Алиса готова" else "Ждёт ключ API"
+            else -> if (curHasKey) "Макс готов" else "Ждёт ключ API"
         }
 
         // Left Checklist
@@ -1314,10 +1314,10 @@ class SetupWizardActivity : Activity() {
         }
 
         if (curKwsReady) {
-            tvChkKws.text = "✓ Фраза «Алиса» (${curKwsDetections})"
+            tvChkKws.text = "✓ Фраза «Макс» (${curKwsDetections})"
             tvChkKws.setTextColor(Color.parseColor("#6EE7B7"))
         } else {
-            tvChkKws.text = "• Wake Word «Алиса» выкл"
+            tvChkKws.text = "• Wake Word «Макс» выкл"
             tvChkKws.setTextColor(Color.parseColor("#94A3B8"))
         }
 
@@ -1365,11 +1365,11 @@ class SetupWizardActivity : Activity() {
         lastKwsDetections = curKwsDetections
         tvStep2KwsLive.text = when {
             newDetect || (ast?.optString("state", "idle") == "listening") ->
-                "✓ Отлично! «Алиса» услышала вас (срабатываний: $curKwsDetections)"
+                "✓ Отлично! «Макс» услышала вас (срабатываний: $curKwsDetections)"
             vadSpeech ->
-                "🎙 Речь слышна (скажите чётко «Алиса»)"
+                "🎙 Речь слышна (скажите чётко «Макс»)"
             curKwsReady ->
-                "Офлайн Wake Word активен — скажите вслух «Алиса» для проверки (срабатываний: $curKwsDetections)"
+                "Офлайн Wake Word активен — скажите вслух «Макс» для проверки (срабатываний: $curKwsDetections)"
             else ->
                 "Wake Word выключен (активация кнопкой Action или с экрана)"
         }
@@ -1402,7 +1402,7 @@ class SetupWizardActivity : Activity() {
         // Step 5 Summary
         tvStep5Summary.text = buildString {
             append("• Автономный сервер: http://$curIp:8080 ($curHostname.local)\n")
-            append("• Голосовой ассистент «Алиса»: ").append(if (curHasKey) "Ключ API задан · Голос $curVoice\n" else "Без ключа API (можно добавить позже в веб-пульте)\n")
+            append("• Голосовой ассистент «Макс»: ").append(if (curHasKey) "Ключ API задан · Голос $curVoice\n" else "Без ключа API (можно добавить позже в веб-пульте)\n")
             append("• Яндекс Музыка: ").append(if (curMusicLoggedIn) "@$curMusicUser · Моя волна готова\n" else "Не авторизована (можно войти позже)\n")
             append("• Звук и подсветка: Выход $curRoute · EQ $curEq · Кольцо $curRingMode")
         }

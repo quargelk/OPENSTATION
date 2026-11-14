@@ -8,12 +8,12 @@ import java.net.URL
 
 /**
  * Intercepts Android ASSIST / VOICE_COMMAND intents (so removed Yandex Alice doesn't break remotes)
- * and forwards the voice trigger to local openstationd (Gemini Live "Алиса" or Wyoming Satellite).
+ * and forwards the voice trigger to local openstationd (Gemini Live "Макс" or Wyoming Satellite).
  */
 class VoiceAssistActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Toast.makeText(this, "Голосовой ассистент «Алиса»", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Голосовой ассистент «Макс»", Toast.LENGTH_SHORT).show()
         Thread {
             var handled = false
             try {

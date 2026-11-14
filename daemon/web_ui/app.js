@@ -237,7 +237,7 @@
     if (liveU || liveM) {
       box.style.display = "block";
       if ($("aliceLiveUser")) $("aliceLiveUser").textContent = liveU ? ("Вы: " + liveU) : "";
-      if ($("aliceLiveModel")) $("aliceLiveModel").textContent = liveM ? ("Алиса: " + liveM) : "";
+      if ($("aliceLiveModel")) $("aliceLiveModel").textContent = liveM ? ("Макс: " + liveM) : "";
     } else {
       box.style.display = "none";
       if ($("aliceLiveUser")) $("aliceLiveUser").textContent = "";
@@ -255,7 +255,7 @@
     if (!hist || !hist.length) {
       const h = document.createElement("div");
       h.className = "hint";
-      h.textContent = "Скажите «Алиса...» или нажмите «Разбудить Алису».";
+      h.textContent = "Скажите «Макс...» или нажмите «Разбудить Макса».";
       box.appendChild(h);
       return;
     }
@@ -265,7 +265,7 @@
       const meta = document.createElement("div");
       meta.className = "dialog-meta";
       const rSpan = document.createElement("span");
-      rSpan.textContent = item.role === "user" ? "Вы" : (item.role === "tool" ? "Действие" : "Алиса");
+      rSpan.textContent = item.role === "user" ? "Вы" : (item.role === "tool" ? "Действие" : "Макс");
       const tSpan = document.createElement("span");
       tSpan.textContent = item.ts || "";
       meta.appendChild(rSpan);
@@ -290,7 +290,7 @@
     const meta = document.createElement("div");
     meta.className = "dialog-meta";
     const rSpan = document.createElement("span");
-    rSpan.textContent = role === "user" ? "Вы" : (role === "tool" ? "Действие" : "Алиса");
+    rSpan.textContent = role === "user" ? "Вы" : (role === "tool" ? "Действие" : "Макс");
     const tSpan = document.createElement("span");
     tSpan.textContent = ts;
     meta.appendChild(rSpan);
@@ -557,7 +557,7 @@
     const stRu = ALICE_STATE_RU[astState] || astState;
     const qb = $("btnQuickAlice");
     if (qb) {
-      qb.textContent = `Алиса: ${stRu}`;
+      qb.textContent = `Макс: ${stRu}`;
       qb.classList.toggle("active", !!(ast?.active));
     }
     const ww = ast?.wakeWord || {};
@@ -581,12 +581,12 @@
         ban.textContent = "Укажите Gemini API Key справа и нажмите «Применить и сохранить»";
         ban.className = "status-banner warn";
       } else if (ast?.active) {
-        ban.textContent = `Алиса: ${stRu}`;
+        ban.textContent = `Макс: ${stRu}`;
         ban.className = "status-banner live";
       } else {
         ban.textContent = ww.ready
-          ? "Готова — скажите «Алиса» или нажмите кнопку ниже"
-          : "Готова к запуску кнопкой (отклик на фразу «Алиса» выключен)";
+          ? "Готова — скажите «Макс» или нажмите кнопку ниже"
+          : "Готова к запуску кнопкой (отклик на фразу «Макс» выключен)";
         ban.className = "status-banner " + (ww.ready ? "ok" : "");
       }
     }
@@ -1139,7 +1139,7 @@
     if (!box) return;
     box.innerHTML = "";
     if (!currentMemoryNotes || currentMemoryNotes.length === 0) {
-      box.innerHTML = '<div class="hint">Заметок пока нет. Добавьте ниже или скажите Алисе голосом «Запомни...»</div>';
+      box.innerHTML = '<div class="hint">Заметок пока нет. Добавьте ниже или скажите Максу голосом «Запомни...»</div>';
       return;
     }
     currentMemoryNotes.forEach((note, idx) => {
@@ -1174,7 +1174,7 @@
         inp.value = "";
         renderMemoryNotes();
         scheduleConfigPush();
-        showToast("Факт добавлен в память Алисы!");
+        showToast("Факт добавлен в память Макса!");
       });
     }
 
@@ -1250,7 +1250,7 @@
         if (state && state.assistant) state.assistant.agentMode = !!res.agentMode;
         applyAliceBanner(state?.assistant?.state || "idle", state?.assistant, state?.config?.assistant);
         showToast(res.agentMode
-          ? "Режим Агента включён — Алиса может выполнять ADB и системные команды"
+          ? "Режим Агента включён — Макс может выполнять ADB и системные команды"
           : "Режим Агента выключен");
       } catch (e) {
         $("astAgentMode").checked = !enabled;
@@ -1273,9 +1273,9 @@
   async function triggerAlice() {
     try {
       await api("/api/assistant/trigger", "POST", { reason: "webui" });
-      showToast("Алиса слушает...");
+      showToast("Макс слушает...");
     } catch {
-      showToast("Не удалось запустить Алису (проверьте ключ)", true);
+      showToast("Не удалось запустить Макса (проверьте ключ)", true);
     }
   }
   async function stopAlice() {
@@ -1444,7 +1444,7 @@
     $("btnTestChime").addEventListener("click", async () => {
       try {
         await api("/api/assistant/trigger", "POST", { reason: "test_chime" });
-        showToast("Воспроизведён звуковой гонг Алисы");
+        showToast("Воспроизведён звуковой гонг Макса");
       } catch (e) {
         showToast("Ошибка: " + e.message, true);
       }
@@ -1986,7 +1986,7 @@
             } else if (msg.kind === "tool_call" && msg.text) {
               appendAliceHistoryItem("tool", msg.text);
             } else if (msg.kind === "error" && msg.text) {
-              showToast("Алиса: " + msg.text, true);
+              showToast("Макс: " + msg.text, true);
             }
           }
         } catch {}
@@ -2082,7 +2082,7 @@
       $("wizDiagHw").textContent = hw.fb5Present ? "Активен" : "Отключён";
     }
     if ($("wizDiagMic")) {
-      $("wizDiagMic").textContent = ww.ready ? "Фраза «Алиса» активна" : (ww.status || "Выкл");
+      $("wizDiagMic").textContent = ww.ready ? "Фраза «Макс» активна" : (ww.status || "Выкл");
     }
 
     const dnsHost = d.privateDnsHost || "";
@@ -2112,8 +2112,8 @@
       const hasKey = !!(cfg.assistant?.geminiApiKeySet || cfg.assistant?.geminiApiKey);
       const checks = [
         { ok: true, txt: "Станция в сети и готова" },
-        { ok: hasKey, txt: hasKey ? "Ключ Алисы (Gemini) задан" : "Ключ Алисы не задан (Шаг 2)" },
-        { ok: !!ww.ready, txt: ww.ready ? "Отклик на фразу «Алиса» активен" : "Отклик на фразу выключен" },
+        { ok: hasKey, txt: hasKey ? "Ключ Макса (Gemini) задан" : "Ключ Макса не задан (Шаг 2)" },
+        { ok: !!ww.ready, txt: ww.ready ? "Отклик на фразу «Макс» активен" : "Отклик на фразу выключен" },
         { ok: !!m.hasAuth, txt: m.hasAuth ? `Яндекс Музыка: @${m.userLogin || "OK"}` : "Яндекс Музыка: без входа (опц.)" }
       ];
       // textContent: userLogin comes from the music account and must not be parsed as HTML
@@ -2222,7 +2222,7 @@
           geminiApiKey: $("wizApiKey")?.value.trim() || "",
           geminiProxyHost: $("wizProxyHost")?.value.trim() ?? "ai-pool.comss.one"
         }
-      }, "Параметры Алисы сохранены"));
+      }, "Параметры Макса сохранены"));
     }
   });
   if ($("btnWizYmOAuth")) {

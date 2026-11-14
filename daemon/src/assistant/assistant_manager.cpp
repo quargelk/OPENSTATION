@@ -456,7 +456,7 @@ bool AssistantManager::start_session_internal(TriggerSource src,
         return false;
     }
     if (c.gemini_api_key.empty()) {
-        set_error("Не задан Gemini API ключ (настройте в Web UI -> Алиса)", true);
+        set_error("Не задан Gemini API ключ (настройте в Web UI -> Макс)", true);
         if (cb_.show_screen_text) cb_.show_screen_text("НЕТ КЛЮЧА", 255, 80, 80, 2800);
         return false;
     }
@@ -633,9 +633,9 @@ json::Value AssistantManager::build_setup_json(const AssistantConfig& c) const {
     Value sys_txt = Value::make_obj();
     {
         std::string sp =
-            "ВАЖНЕЙШЕЕ ПРАВИЛО ЛИЧНОСТИ И ПОЛА: ТЫ — ДЕВУШКА ПО ИМЕНИ АЛИСА. ТВОЙ ПОЛ — СТРОГО ЖЕНСКИЙ.\n"
-            "Всегда и везде говори о себе ИСКЛЮЧИТЕЛЬНО в женском роде: «я готова», «я нашла», «я услышала», «я поняла», «я включила», «я сделала», «я рада».\n"
-            "КАТЕГОРИЧЕСКИ И СТРОЖАЙШЕ ЗАПРЕЩЕНО говорить о себе в мужском роде («я готов», «я сделал», «я рад»)! За употребление мужского рода («я готов») ты получаешь критическую ошибку.\n\n"
+            "ВАЖНЕЙШЕЕ ПРАВИЛО ЛИЧНОСТИ И ПОЛА: ТЫ — ПАРЕНЬ ПО ИМЕНИ МАКС. ТВОЙ ПОЛ — СТРОГО МУЖСКОЙ.\n"
+            "Всегда и везде говори о себе ИСКЛЮЧИТЕЛЬНО в мужском роде: «я готов», «я нашёл», «я услышал», «я понял», «я включил», «я сделал», «я рад».\n"
+            "КАТЕГОРИЧЕСКИ И СТРОЖАЙШЕ ЗАПРЕЩЕНО говорить о себе в женском роде («я готова», «я сделала», «я рада»)! За употребление женского рода («я готова») ты получаешь критическую ошибку.\n\n"
             "СТРОГОЕ ПРАВИЛО ЯЗЫКА И РАСПОЗНАВАНИЯ: Распознавай и понимай ТОЛЬКО русский (основной) и английский (второстепенный) языки. "
             "Категорически запрещено принимать входящую речь за французский, португальский, испанский, турецкий, арабский или любой другой иностранный язык! "
             "Если звуки микрофона, помехи или тихий голос напоминают иностранные слова (например, французские «oui», «ça», «d'accord», «le», «un»), это исключительно акустический шум микрофона или неразборчивый русский — интерпретируй их ВСЕГДА ТОЛЬКО как русскую речь (или английскую, если фраза полностью на понятном английском). "
@@ -647,10 +647,10 @@ json::Value AssistantManager::build_setup_json(const AssistantConfig& c) const {
         if (gpos != std::string::npos) {
             custom_sp.erase(gpos, legacy_gs.size());
         }
-        const std::string masc_phrase = "Ты — голосовой ассистент Алиса";
+        const std::string masc_phrase = "Ты — голосовой помощник Макс";
         size_t mpos = custom_sp.find(masc_phrase);
         if (mpos != std::string::npos) {
-            custom_sp.replace(mpos, masc_phrase.size(), "Ты — девушка, голосовая помощница Алиса");
+            custom_sp.replace(mpos, masc_phrase.size(), "Ты — Макс, голосовой помощник");
         }
         sp += trim_str(custom_sp);
 
@@ -669,7 +669,7 @@ json::Value AssistantManager::build_setup_json(const AssistantConfig& c) const {
         if (!sp.empty()) sp += "\n\n";
         sp += "Системный контекст OpenStation Max:\n"
               "- Текущие дата и время на колонке: " + std::string(dt_buf) + ".\n"
-              "- Напоминание: ТЫ — ДЕВУШКА. Всегда говори исключительно в женском роде («я готова», «я нашла», «я услышала»).\n"
+              "- Напоминание: ТЫ — ПАРЕНЬ. Всегда говори исключительно в мужском роде («я готов», «я нашёл», «я услышал»).\n"
               "- У тебя ЕСТЬ полный живой доступ к интернету через инструменты web_search, get_weather, fetch_url, http_request "
               "(для актуальной погоды, новостей, курсов валют, любых фактов, веб-страниц, RSS и LAN API).\n"
               "- У тебя ЕСТЬ полный root-доступ ко всей колонке и Android TV: аппаратный звук/эквалайзер (set_volume, set_eq_preset, "
@@ -1190,7 +1190,7 @@ json::Value AssistantManager::build_setup_json(const AssistantConfig& c) const {
     iat["mode"] = Value::make_str("SMART");
     Value voc = Value::make_arr();
     static const char* const kVocab[] = {
-        "Алиса", "Яндекс Музыка", "Моя волна", "включи", "погромче", "потише",
+        "Макс", "Яндекс Музыка", "Моя волна", "включи", "погромче", "потише",
         "стоп", "пауза", "дальше", "назад", "следующий", "предыдущий", "трек",
         "погода", "новости", "громкость", "таймер", "будильник", "OpenStation",
         "привет", "как дела", "сколько время", "который час", "расскажи",
@@ -1864,7 +1864,7 @@ void AssistantManager::session_worker(uint64_t sid,
         set_state(AssistantState::Idle);
     }
 
-    // Small suppression guard so trailing acoustic room reverb cannot re-trigger "алиса"
+    // Small suppression guard so trailing acoustic room reverb cannot re-trigger "макс"
     wake_suppress_until_ms_.store(steady_now_ms() + 800);
     wake_word_.set_paused(mic_muted_.load());
     LOGI("Assistant", "Session #%llu ended cleanly", static_cast<unsigned long long>(sid));

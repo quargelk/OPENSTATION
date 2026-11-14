@@ -29,7 +29,7 @@
         <span class="badge" id="badgeVol">Громкость: --%</span>
         <button class="btn btn-sm btn-danger" id="btnQuickMute">Микрофон: ВКЛ</button>
         <button class="btn btn-sm" id="btnQuickBt" title="Режим Bluetooth (A2DP колонка для телефона)">ᛒ Bluetooth: ВЫКЛ</button>
-        <button class="btn btn-sm btn-accent" id="btnQuickAlice">Алиса: Спит</button>
+        <button class="btn btn-sm btn-accent" id="btnQuickAlice">Макс: Спит</button>
         <button class="btn btn-sm" id="btnQuickMusic">🌊 Моя волна</button>
         <button class="btn btn-sm btn-ota" id="badgeOtaUpdate" style="display:none;">⬇ Обновление</button>
         <button class="btn btn-sm btn-accent" id="btnOpenWizard">✨ Мастер</button>
@@ -38,7 +38,7 @@
 
     <nav class="tabs" id="tabNav">
       <button class="tab active" data-tab="remote">Музыка и Пульт</button>
-      <button class="tab" data-tab="alice">Алиса</button>
+      <button class="tab" data-tab="alice">Макс</button>
       <button class="tab" data-tab="sound">Звук и Подсветка</button>
       <button class="tab" data-tab="system">Система</button>
     </nav>
@@ -241,7 +241,7 @@
         <div class="grid-2">
           <div class="card">
             <div class="row-between">
-              <h2>Голосовой ассистент «Алиса»</h2>
+              <h2>Голосовой ассистент «Макс»</h2>
               <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
                 <span class="badge" id="badgeAgentMode">Агент: выкл</span>
                 <span class="badge" id="badgeWakeWord">Голос: --</span>
@@ -250,12 +250,12 @@
             <div class="status-banner" id="aliceStatusBanner">Инициализация...</div>
 
             <div class="btn-row">
-              <button class="btn btn-accent" id="btnAliceTrigger">Разбудить Алису</button>
+              <button class="btn btn-accent" id="btnAliceTrigger">Разбудить Макса</button>
               <button class="btn btn-danger" id="btnAliceStop">Остановить диалог</button>
             </div>
 
             <div class="input-send-row" style="margin-top: 12px;">
-              <input type="text" id="aliceTextPrompt" placeholder="Написать Алисе текстом (ответит голосом)..." />
+              <input type="text" id="aliceTextPrompt" placeholder="Написать Максу текстом (ответит голосом)..." />
               <button class="btn btn-accent" id="btnAliceSendText">Отправить</button>
             </div>
 
@@ -298,12 +298,12 @@
               <div class="live-line model" id="aliceLiveModel"></div>
             </div>
             <div class="dialog-box" id="aliceHistory">
-              <div class="hint">Скажите «Алиса...» или нажмите «Разбудить Алису».</div>
+              <div class="hint">Скажите «Макс...» или нажмите «Разбудить Макса».</div>
             </div>
           </div>
 
           <div class="card">
-            <h2>Настройки Алисы</h2>
+            <h2>Настройки Макса</h2>
             <div class="form-row">
               <label>Голос ответа</label>
               <select id="astVoice">
@@ -335,9 +335,9 @@
             </div>
 
             <div class="form-row">
-              <label>Память Алисы (факты и заметки)</label>
+              <label>Память Макса (факты и заметки)</label>
               <div class="alice-memory-box" id="aliceMemoryBox">
-                <div class="hint" id="memoryEmptyHint">Заметок пока нет. Добавьте ниже или скажите Алисе «Запомни...»</div>
+                <div class="hint" id="memoryEmptyHint">Заметок пока нет. Добавьте ниже или скажите Максу «Запомни...»</div>
               </div>
               <div class="input-send-row" style="margin-top:8px;">
                 <input type="text" id="newMemoryNote" placeholder="Добавить факт («Любимый чай: зелёный»)..." />
@@ -348,7 +348,7 @@
             <div class="form-row toggle-row" style="margin-top:12px; padding:10px 12px; border-radius:12px; background:rgba(86,216,255,0.07); border:1px solid rgba(110,218,255,0.20);">
               <div>
                 <label for="astAgentMode" style="font-weight:600; color:#f1f5f9;">Режим Агента (ADB и система)</label>
-                <div class="hint" style="margin-top:2px;">Алиса получает полный доступ к ADB / root-командам для автоматизации любых действий на станции и рисует задачи на экранчике.</div>
+                <div class="hint" style="margin-top:2px;">Макс получает полный доступ к ADB / root-командам для автоматизации любых действий на станции и рисует задачи на экранчике.</div>
               </div>
               <input type="checkbox" id="astAgentMode" />
             </div>
@@ -363,7 +363,7 @@
               <summary>Инженерные параметры Gemini Live</summary>
               <div class="adv-details-body">
                 <div class="form-row toggle-row">
-                  <label>Включить Алису</label>
+                  <label>Включить Макса</label>
                   <input type="checkbox" id="astEnabled" checked />
                 </div>
 
@@ -382,7 +382,7 @@
 
                 <div class="grid-2-tight">
                   <div class="form-row toggle-row">
-                    <label>Откликаться на «Алиса»</label>
+                    <label>Откликаться на «Макс»</label>
                     <input type="checkbox" id="astWakeEn" checked />
                   </div>
                   <div class="form-row toggle-row">
@@ -395,7 +395,7 @@
                   <div class="form-row">
                     <label>Режим ассистента</label>
                     <select id="astMode">
-                      <option value="gemini">Алиса (Gemini Live)</option>
+                      <option value="gemini">Макс (Gemini Live)</option>
                       <option value="wyoming">Home Assistant (Wyoming)</option>
                       <option value="off">Выкл</option>
                     </select>
@@ -530,7 +530,7 @@
                   <button class="btn btn-sm" id="btnTestSpeech" type="button">СЧ Речь (1000 Гц)</button>
                   <button class="btn btn-sm" id="btnTestHigh" type="button">ВЧ Твитеры (8000 Гц)</button>
                   <button class="btn btn-sm" id="btnTestSweep" type="button">Свип (20-15k Гц)</button>
-                  <button class="btn btn-sm btn-accent" id="btnTestChime" type="button">🔔 Чайм Алисы</button>
+                  <button class="btn btn-sm btn-accent" id="btnTestChime" type="button">🔔 Чайм Макса</button>
                 </div>
                 <div class="hint" id="toneStatusText" style="margin-top:6px;"></div>
               </div>
@@ -783,7 +783,7 @@
                     <div class="form-row">
                       <label>Короткое нажатие кнопки</label>
                       <select id="actShort">
-                        <option value="assistant">Запустить Алису</option>
+                        <option value="assistant">Запустить Макса</option>
                         <option value="wyoming">Home Assistant (Wyoming)</option>
                         <option value="play_pause">Пауза / Воспроизведение</option>
                         <option value="led_cycle">Сменить подсветку</option>
@@ -795,7 +795,7 @@
                       <label>Длинное нажатие кнопки</label>
                       <select id="actLong">
                         <option value="led_cycle">Сменить подсветку</option>
-                        <option value="assistant">Запустить Алису</option>
+                        <option value="assistant">Запустить Макса</option>
                         <option value="wyoming">Home Assistant (Wyoming)</option>
                         <option value="play_pause">Пауза / Воспроизведение</option>
                         <option value="launcher">Домой (ТВ-экран)</option>
@@ -919,7 +919,7 @@
 
       <div class="wizard-steps" id="wizStepsNav">
         <button class="wiz-step-pill active" data-step="1" type="button">1. Станция и сеть</button>
-        <button class="wiz-step-pill" data-step="2" type="button">2. Алиса</button>
+        <button class="wiz-step-pill" data-step="2" type="button">2. Макс</button>
         <button class="wiz-step-pill" data-step="3" type="button">3. Музыка и Звук</button>
         <button class="wiz-step-pill" data-step="4" type="button">4. Подсветка и Кнопки</button>
         <button class="wiz-step-pill" data-step="5" type="button">5. Готовность</button>
@@ -957,7 +957,7 @@
           </div>
 
           <div class="form-row" style="margin-top:12px;">
-            <label>Private DNS (для стабильной работы Алисы)</label>
+            <label>Private DNS (для стабильной работы Макса)</label>
             <div class="input-send-row">
               <input type="text" id="wizDnsHost" placeholder="dns.comss.one (пусто = стандартный)" value="dns.comss.one" />
               <button class="btn btn-sm" id="btnWizApplyDns" type="button">Сохранить DNS</button>
@@ -982,7 +982,7 @@
               <input type="text" id="wizProxyHost" placeholder="ai-pool.comss.one" value="ai-pool.comss.one" />
             </div>
             <div class="form-row">
-              <label>Голос Алисы</label>
+              <label>Голос Макса</label>
               <select id="wizVoice">
                 <option value="Aoede">Aoede (женский, мягкий)</option>
                 <option value="Kore">Kore (женский, яркий)</option>
@@ -996,12 +996,12 @@
             </div>
           </div>
           <div class="form-row toggle-row">
-            <label>Откликаться на слово «Алиса»</label>
+            <label>Откликаться на слово «Макс»</label>
             <input type="checkbox" id="wizWakeEn" checked />
           </div>
           <div class="btn-row">
             <button class="btn btn-accent" id="btnWizTestGemini" type="button">⚡ Сохранить и проверить связь</button>
-            <button class="btn" id="btnWizTestSay" type="button">🎤 Разбудить Алису</button>
+            <button class="btn" id="btnWizTestSay" type="button">🎤 Разбудить Макса</button>
           </div>
         </div>
 
@@ -1062,7 +1062,7 @@
             <div class="form-row">
               <label>Верхняя кнопка на корпусе</label>
               <select id="wizActShort">
-                <option value="assistant">Запустить Алису</option>
+                <option value="assistant">Запустить Макса</option>
                 <option value="wyoming">Home Assistant</option>
                 <option value="play_pause">Пауза / Музыка</option>
                 <option value="led_cycle">Сменить подсветку</option>

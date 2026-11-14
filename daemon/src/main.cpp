@@ -2206,7 +2206,7 @@ int main(int argc, char** argv) {
             if (!agent_on) {
                 res["ok"] = Value::make_bool(false);
                 res["error"] = Value::make_str(
-                    "Режим Агента выключен. Включите «Режим Агента (ADB и система)» в веб-интерфейсе на вкладке «Алиса».");
+                    "Режим Агента выключен. Включите «Режим Агента (ADB и система)» в веб-интерфейсе на вкладке «Макс».");
                 return res;
             }
             std::string command = args.get("command") ? args.get("command")->as_str()
@@ -2238,7 +2238,7 @@ int main(int argc, char** argv) {
             if (!agent_on) {
                 res["ok"] = Value::make_bool(false);
                 res["error"] = Value::make_str(
-                    "Режим Агента выключен. Включите «Режим Агента (ADB и система)» в веб-интерфейсе на вкладке «Алиса».");
+                    "Режим Агента выключен. Включите «Режим Агента (ADB и система)» в веб-интерфейсе на вкладке «Макс».");
                 return res;
             }
             std::string raw_cmd = args.get("command") ? args.get("command")->as_str()

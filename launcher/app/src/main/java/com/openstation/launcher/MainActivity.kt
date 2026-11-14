@@ -951,7 +951,7 @@ class MainActivity : Activity() {
             )
         }
 
-        val tabTitles = arrayOf("Сфера", "Музыка и ТВ", "Станция")
+        val tabTitles = arrayOf("Макс", "Музыка и ТВ", "Станция")
         val tmpTabs = ArrayList<TextView>(3)
         val tmpShapes = ArrayList<GradientDrawable>(3)
         tabTitles.forEachIndexed { idx, title ->
@@ -1285,7 +1285,7 @@ class MainActivity : Activity() {
             }
         }
         tvHeroState = TextView(this).apply {
-            text = "АЛИСА · ГОТОВА"
+            text = "МАКС · ГОТОВ"
             setTextColor(Color.parseColor("#CBD5E1"))
             textSize = 11f
             letterSpacing = 0.08f
@@ -1309,7 +1309,7 @@ class MainActivity : Activity() {
         heroReplyHeader.addView(tvHeroUser)
 
         tvHeroReply = TextView(this).apply {
-            text = "Скажите «Алиса» или нажмите OK"
+            text = "Скажите «Макс» или нажмите OK"
             setTextColor(Color.parseColor("#CBD5E1"))
             textSize = 13.5f
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
@@ -1432,7 +1432,7 @@ class MainActivity : Activity() {
                     LiveOrbState.weatherCity
                 )
             } else {
-                Toast.makeText(this, "Спросите Алису: «Какая погода?»", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Спросите Макса: «Какая погода?»", Toast.LENGTH_SHORT).show()
             }
         }.apply {
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
@@ -1693,7 +1693,7 @@ class MainActivity : Activity() {
             ellipsize = TextUtils.TruncateAt.END
         }
         tvHomeTrackArtist = TextView(this).apply {
-            text = "Скажите «Алиса, включи музыку» или жмите «Моя волна»"
+            text = "Скажите «Макс, включи музыку» или жмите «Моя волна»"
             setTextColor(Color.parseColor("#CBD5E1"))
             textSize = 12.5f
             maxLines = 1
@@ -2173,7 +2173,7 @@ class MainActivity : Activity() {
             }
         }
         tvDockState = TextView(this).apply {
-            text = "АЛИСА · ГОТОВА"
+            text = "МАКС · ГОТОВ"
             setTextColor(Color.parseColor("#E8C686"))
             textSize = 11f
             letterSpacing = 0.08f
@@ -2197,7 +2197,7 @@ class MainActivity : Activity() {
         metaRow.addView(tvDockMusic)
 
         tvDockReply = TextView(this).apply {
-            text = "Скажите «Алиса» или нажмите сюда для вопроса"
+            text = "Скажите «Макс» или нажмите сюда для вопроса"
             setTextColor(Color.parseColor("#F8FAFC"))
             textSize = 13.5f
             typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
@@ -2209,7 +2209,7 @@ class MainActivity : Activity() {
         textCol.addView(tvDockReply)
         bar.addView(textCol)
 
-        btnDockHome = makeTextIconPill(R.drawable.ic_wave, "Сфера", gold = false) {
+        btnDockHome = makeTextIconPill(R.drawable.ic_wave, "Макс", gold = false) {
             setPage(0, animate = true)
         }.apply {
             layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dp(34))
@@ -2434,44 +2434,44 @@ class MainActivity : Activity() {
             "connecting" -> {
                 accent = Color.parseColor("#38BDF8")
                 borderColor = Color.parseColor("#8838BDF8")
-                stateLabel = "АЛИСА · ПОДКЛЮЧЕНИЕ"
+                stateLabel = "МАКС · ПОДКЛЮЧЕНИЕ"
                 heroFallback = "Подключаю голосовой поток..."
                 dockFallback = "Подключаю голосовой поток..."
             }
             "listening" -> {
                 accent = Color.parseColor("#2DD4BF")
                 borderColor = Color.parseColor("#992DD4BF")
-                stateLabel = "АЛИСА · СЛУШАЮ"
+                stateLabel = "МАКС · СЛУШАЮ"
                 heroFallback = "Говорите, я внимательно слушаю..."
                 dockFallback = "Говорите, я внимательно слушаю..."
             }
             "thinking" -> {
                 accent = Color.parseColor("#E8C686")
                 borderColor = Color.parseColor("#AAE8C686")
-                stateLabel = "АЛИСА · ДУМАЮ"
+                stateLabel = "МАКС · ДУМАЮ"
                 heroFallback = if (userTxt.isNotEmpty()) "Обрабатываю: «$userTxt»" else "Формирую ответ..."
                 dockFallback = if (userTxt.isNotEmpty()) "Обрабатываю: «$userTxt»" else "Формирую ответ..."
             }
             "speaking" -> {
                 accent = Color.parseColor("#C084FC")
                 borderColor = Color.parseColor("#AAC084FC")
-                stateLabel = "АЛИСА · ОТВЕЧАЮ"
+                stateLabel = "МАКС · ОТВЕЧАЮ"
                 heroFallback = "Отвечаю голосом..."
                 dockFallback = "Отвечаю голосом..."
             }
             "error" -> {
                 accent = Color.parseColor("#F87171")
                 borderColor = Color.parseColor("#AAF87171")
-                stateLabel = "АЛИСА · ОШИБКА"
+                stateLabel = "МАКС · ОШИБКА"
                 heroFallback = "Не удалось выполнить запрос"
                 dockFallback = "Ошибка ассистента"
             }
             else -> {
                 accent = if (assistantEnabled) Color.parseColor("#E2E8F0") else Color.parseColor("#64748B")
                 borderColor = Color.parseColor("#18FFFFFF")
-                stateLabel = if (assistantEnabled) "АЛИСА · ГОТОВА" else "АЛИСА · ВЫКЛЮЧЕНА"
-                heroFallback = if (assistantEnabled) "Алиса готова · Нажмите OK" else "Микрофон выключен · Нажмите OK"
-                dockFallback = "Скажите «Алиса» или нажмите, чтобы задать вопрос"
+                stateLabel = if (assistantEnabled) "МАКС · ГОТОВ" else "МАКС · ВЫКЛЮЧЕНА"
+                heroFallback = if (assistantEnabled) "Макс готов · Нажмите OK" else "Микрофон выключен · Нажмите OK"
+                dockFallback = "Скажите «Макс» или нажмите, чтобы задать вопрос"
             }
         }
 
@@ -3308,7 +3308,7 @@ class MainActivity : Activity() {
                     } else {
                         "● Громкость $volumePct%"
                     }
-                    val astTxt = if (assistantState != "idle") "Алиса активна" else "Алиса готова"
+                    val astTxt = if (assistantState != "idle") "Макс активен" else "Макс готов"
                     val telStr = "● $astTxt · v$fwVer"
 
                     handler.post {
@@ -3587,7 +3587,7 @@ class MainActivity : Activity() {
                 }
             } else {
                 tvHomeTrackTitle.text = "Моя волна — поток музыки"
-                tvHomeTrackArtist.text = "Скажите «Алиса, включи музыку» или жмите «Моя волна»"
+                tvHomeTrackArtist.text = "Скажите «Макс, включи музыку» или жмите «Моя волна»"
                 pbHomeTrack.progress = 0
                 tvHomeTrackTime.text = "00:00 / 00:00"
                 if (forceViews || lastTrackLiked != false) {
@@ -4434,7 +4434,7 @@ class MainActivity : Activity() {
         panel.addView(drawerScrollView)
 
         val footerHint = TextView(this).apply {
-            text = "▲ или BACK — вернуться на рабочий стол с Алисой"
+            text = "▲ или BACK — вернуться на рабочий стол с Максом"
             setTextColor(Color.parseColor("#64748B"))
             textSize = 11f
             gravity = Gravity.CENTER
