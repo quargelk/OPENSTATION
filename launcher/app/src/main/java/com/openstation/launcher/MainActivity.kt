@@ -2469,7 +2469,7 @@ class MainActivity : Activity() {
             else -> {
                 accent = if (assistantEnabled) Color.parseColor("#E2E8F0") else Color.parseColor("#64748B")
                 borderColor = Color.parseColor("#18FFFFFF")
-                stateLabel = if (assistantEnabled) "МАКС · ГОТОВ" else "МАКС · ВЫКЛЮЧЕНА"
+                stateLabel = if (assistantEnabled) "МАКС · ГОТОВ" else "МАКС · ВЫКЛЮЧЕН"
                 heroFallback = if (assistantEnabled) "Макс готов · Нажмите OK" else "Микрофон выключен · Нажмите OK"
                 dockFallback = "Скажите «Макс» или нажмите, чтобы задать вопрос"
             }
