@@ -110,6 +110,10 @@ object LiquidGlassKit {
         private set
 
     @Volatile
+    var accentHex: String = "#AAC7FF"  // M3 primary accent (hex), from daemon config uiAccentColor
+    fun accent(): Int = try { android.graphics.Color.parseColor(accentHex) } catch (e: Exception) { android.graphics.Color.parseColor("#AAC7FF") }
+
+    @Volatile
     var wallpaperVersion: Int = 0
         private set
 

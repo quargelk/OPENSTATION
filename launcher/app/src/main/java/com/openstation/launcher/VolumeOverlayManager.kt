@@ -110,13 +110,13 @@ class VolumeOverlayManager(private val context: Context) {
         }
     }
 
-    fun showToastPill(title: String, subtitle: String, accentHex: String = "#AAC7FF", durationMs: Long = 2800L) {
+    fun showToastPill(title: String, subtitle: String, accentHex: String = LiquidGlassKit.accentHex, durationMs: Long = 2800L) {
         mainHandler.post {
             ensureViews()
             val accent = try {
                 Color.parseColor(accentHex)
             } catch (_: Throwable) {
-                Color.parseColor("#AAC7FF")
+                Color.parseColor(LiquidGlassKit.accentHex)
             }
             val stroke = Color.argb(135, Color.red(accent), Color.green(accent), Color.blue(accent))
             cardBg?.setStroke(dp(1), stroke)
@@ -364,7 +364,7 @@ class VolumeOverlayManager(private val context: Context) {
         private var levelPct = 0
         private var muted = false
         private var badgeMode = false
-        private var badgeColor = Color.parseColor("#AAC7FF")
+        private var badgeColor = Color.parseColor(LiquidGlassKit.accentHex)
 
         private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.FILL
@@ -425,7 +425,7 @@ class VolumeOverlayManager(private val context: Context) {
                 return
             }
 
-            arcPaint.color = Color.parseColor("#AAC7FF")
+            arcPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
             if (levelPct >= 1) {
                 arcRect.set(w * 0.44f, h * 0.34f, w * 0.68f, h * 0.66f)
                 canvas.drawArc(arcRect, -48f, 96f, false, arcPaint)
@@ -435,7 +435,7 @@ class VolumeOverlayManager(private val context: Context) {
                 canvas.drawArc(arcRect, -50f, 100f, false, arcPaint)
             }
             if (levelPct >= 70) {
-                arcPaint.color = Color.parseColor("#AAC7FF")
+                arcPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
                 arcRect.set(w * 0.40f, h * 0.12f, w * 0.92f, h * 0.88f)
                 canvas.drawArc(arcRect, -52f, 104f, false, arcPaint)
             }
@@ -483,8 +483,8 @@ class VolumeOverlayManager(private val context: Context) {
             if (lastW != w || lastMuted != muted) {
                 lastW = w
                 lastMuted = muted
-                val c0 = Color.parseColor(if (muted) "#FFB4AB" else "#AAC7FF")
-                val c1 = Color.parseColor(if (muted) "#FFB4AB" else "#AAC7FF")
+                val c0 = Color.parseColor(if (muted) "#FFB4AB" else LiquidGlassKit.accentHex)
+                val c1 = Color.parseColor(if (muted) "#FFB4AB" else LiquidGlassKit.accentHex)
                 fillPaint.shader = LinearGradient(0f, 0f, w, 0f, c0, c1, Shader.TileMode.CLAMP)
             }
             rect.set(0f, 0f, max(h, fillW), h)

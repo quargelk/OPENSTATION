@@ -1276,7 +1276,7 @@ class MainActivity : Activity() {
 
         heroStateDotBg = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
-            setColor(Color.parseColor("#AAC7FF"))
+            setColor(Color.parseColor(LiquidGlassKit.accentHex))
         }
         val heroDot = View(this).apply {
             background = heroStateDotBg
@@ -1374,7 +1374,7 @@ class MainActivity : Activity() {
         wLeftCol.addView(eqCard)
 
         // Widget 2: Bluetooth Speaker Quick Card
-        wBtCard = makeGlassWidgetCard("#AAC7FF") { toggleBtFromWidget() }
+        wBtCard = makeGlassWidgetCard(LiquidGlassKit.accentHex) { toggleBtFromWidget() }
         val btHeader = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
@@ -1610,7 +1610,7 @@ class MainActivity : Activity() {
         }
         tvHomeCodecBadge = TextView(this).apply {
             text = ""
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 10f
             typeface = Typeface.DEFAULT_BOLD
             visibility = View.GONE
@@ -1883,7 +1883,7 @@ class MainActivity : Activity() {
         }
         tvIpLine = TextView(this).apply {
             text = "127.0.0.1:8080"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 10.5f
             maxLines = 1
             ellipsize = TextUtils.TruncateAt.END
@@ -2164,7 +2164,7 @@ class MainActivity : Activity() {
         }
         dockStateDotBg = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
-            setColor(Color.parseColor("#AAC7FF"))
+            setColor(Color.parseColor(LiquidGlassKit.accentHex))
         }
         val dockDot = View(this).apply {
             background = dockStateDotBg
@@ -2174,7 +2174,7 @@ class MainActivity : Activity() {
         }
         tvDockState = TextView(this).apply {
             text = "МАКС · ГОТОВ"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -2432,7 +2432,7 @@ class MainActivity : Activity() {
 
         when (st) {
             "connecting" -> {
-                accent = Color.parseColor("#AAC7FF")
+                accent = Color.parseColor(LiquidGlassKit.accentHex)
                 borderColor = Color.parseColor("#88AAC7FF")
                 stateLabel = "МАКС · ПОДКЛЮЧЕНИЕ"
                 heroFallback = "Подключаю голосовой поток..."
@@ -2446,7 +2446,7 @@ class MainActivity : Activity() {
                 dockFallback = "Говорите, я внимательно слушаю..."
             }
             "thinking" -> {
-                accent = Color.parseColor("#AAC7FF")
+                accent = Color.parseColor(LiquidGlassKit.accentHex)
                 borderColor = Color.parseColor("#AAAAC7FF")
                 stateLabel = "МАКС · ДУМАЮ"
                 heroFallback = if (userTxt.isNotEmpty()) "Обрабатываю: «$userTxt»" else "Формирую ответ..."
@@ -3133,7 +3133,7 @@ class MainActivity : Activity() {
                 "neon" -> {
                     tvClock.typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
                     tvClock.setTextColor(Color.parseColor("#E0F2FE"))
-                    tvClock.setShadowLayer(18f, 0f, 0f, Color.parseColor("#AAC7FF"))
+                    tvClock.setShadowLayer(18f, 0f, 0f, Color.parseColor(LiquidGlassKit.accentHex))
                 }
                 "retro" -> {
                     tvClock.typeface = Typeface.MONOSPACE
@@ -3238,6 +3238,7 @@ class MainActivity : Activity() {
                     val txt = conn.inputStream.bufferedReader().use { it.readText() }
                     val root = JSONObject(txt)
                     val cfg = root.optJSONObject("config")
+                    cfg?.optString("uiAccentColor")?.let { ac -> if (ac.length == 7 && ac.startsWith("#")) LiquidGlassKit.accentHex = ac }
                     val audio = root.optJSONObject("audio")
                     val ringCfg = cfg?.optJSONObject("ledRing")
                     val audioCfg = cfg?.optJSONObject("audio")
@@ -3722,7 +3723,7 @@ class MainActivity : Activity() {
                 busy -> {
                     btnOtaUpdate.text = "⏳ $pct%"
                     btnOtaUpdate.setBackgroundResource(R.drawable.bg_pill)
-                    btnOtaUpdate.setTextColor(Color.parseColor("#AAC7FF"))
+                    btnOtaUpdate.setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
                 }
                 avail -> {
                     btnOtaUpdate.text = if (latestVer.isNotBlank()) "⬇ v$latestVer" else "⬇ Обновить"
@@ -4047,7 +4048,7 @@ class MainActivity : Activity() {
         if (::tvWidgetBtState.isInitialized && ::vWidgetBtDotBg.isInitialized) {
             when {
                 btDiscoverableState -> {
-                    vWidgetBtDotBg.setColor(Color.parseColor("#AAC7FF"))
+                    vWidgetBtDotBg.setColor(Color.parseColor(LiquidGlassKit.accentHex))
                     tvWidgetBtState.text = "Поиск пары: OpenStation Max"
                 }
                 btEnabledState -> {
@@ -5336,7 +5337,7 @@ class MainActivity : Activity() {
         }
         val tvPkg = TextView(this).apply {
             text = if (app.isVirtual) "Встроенный модуль OpenStation Max" else app.pkg
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 11.5f
         }
         titleCol.addView(tvTitle)

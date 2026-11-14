@@ -759,6 +759,13 @@
             <div class="card">
               <h2>Устройство и сеть</h2>
               <p class="hint" id="sysAutoInfo">Станция работает автономно без подключения к компьютеру.</p>
+                <div class="form-row" style="margin-top:14px;">
+                  <label>Цвет акцента (Material You) <span class="hint">применяется к пульту и лаунчеру</span></label>
+                  <div class="input-send-row" style="align-items:center;gap:12px;">
+                    <input type="color" id="uiAccentColor" value="#aac7ff" style="max-width:120px;" oninput="window.__setAccent(this.value)" />
+                    <button class="btn btn-sm" type="button" onclick="window.__setAccent('#aac7ff')">Сбросить</button>
+                  </div>
+                </div>
               <div class="form-row">
                 <label>Имя в локальной сети (.local)</label>
                 <input type="text" id="devHost" value="station-max" />

@@ -96,7 +96,7 @@ class HomeEqWidgetController(
 
         val tvTitle = TextView(context).apply {
             text = "ЭКВАЛАЙЗЕР"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 10.5f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -184,7 +184,7 @@ class HomeEqWidgetController(
 
             val tvLbl = TextView(context).apply {
                 text = channelTitles[ch]
-                setTextColor(Color.parseColor(if (ch == 0) "#AAC7FF" else "#C8C5CF"))
+                setTextColor(Color.parseColor(if (ch == 0) LiquidGlassKit.accentHex else "#C8C5CF"))
                 textSize = 9.5f
                 typeface = if (ch == 0) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
                 gravity = Gravity.CENTER
@@ -359,7 +359,7 @@ class HomeEqWidgetController(
         if (!::tvHint.isInitialized) return
         if (adjustingChannel >= 0) {
             tvHint.text = "▲▼ Изменить ${channelTitles[adjustingChannel]} · ◄► Полоса · OK готово"
-            tvHint.setTextColor(Color.parseColor("#AAC7FF"))
+            tvHint.setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
         } else {
             tvHint.text = "OK на полосе — настройка уровня · Пресет: ${presetLabels[preset] ?: preset}"
             tvHint.setTextColor(Color.parseColor("#C8C5CF"))

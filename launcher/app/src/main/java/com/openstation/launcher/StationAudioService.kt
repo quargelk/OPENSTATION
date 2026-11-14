@@ -501,12 +501,12 @@ class StationAudioService : Service() {
                     handler.post { bringLauncherHome() }
                 }
                 "find_remote" -> {
-                    volumeOverlayManager?.showToastPill("ПОИСК ПУЛЬТА", "Отправляю BLE-сигнал зуммера на пульт...", "#AAC7FF", 2400L)
+                    volumeOverlayManager?.showToastPill("ПОИСК ПУЛЬТА", "Отправляю BLE-сигнал зуммера на пульт...", LiquidGlassKit.accentHex, 2400L)
                     bleRemoteManager?.triggerBuzzer { ok, msg ->
                         volumeOverlayManager?.showToastPill(
                             if (ok) "ПУЛЬТ ОТКЛИКНУЛСЯ" else "ПУЛЬТ НЕ НАЙДЕН",
                             msg,
-                            if (ok) "#AAC7FF" else "#FFB4AB",
+                            if (ok) LiquidGlassKit.accentHex else "#FFB4AB",
                             3500L
                         )
                     }
@@ -516,7 +516,7 @@ class StationAudioService : Service() {
                         val col = when (st) {
                             "connected" -> "#10D281"
                             "error", "not_found" -> "#FFB4AB"
-                            else -> "#AAC7FF"
+                            else -> LiquidGlassKit.accentHex
                         }
                         volumeOverlayManager?.showToastPill("BLE ПУЛЬТ YANDEX", detail, col, 3200L)
                     }
@@ -633,7 +633,7 @@ class StationAudioService : Service() {
                         volumeOverlayManager?.showToastPill(
                             "BLUETOOTH КОЛОНКА",
                             "Видима как OpenStation Max ($durationSec сек)",
-                            "#AAC7FF",
+                            LiquidGlassKit.accentHex,
                             3500L
                         )
                     }

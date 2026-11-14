@@ -394,7 +394,7 @@ class AliceOrbView @JvmOverloads constructor(
     private var curHue = 0f
     private var curSat = 1.05f
     private var curBright = 1.0f
-    private var curGlowColor = Color.parseColor("#AAC7FF")
+    private var curGlowColor = Color.parseColor(LiquidGlassKit.accentHex)
 
     // Preallocated Paint/Matrix/LRU Shader objects (zero per-frame allocations in steady state)
     private val bmpPaint0 = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
@@ -523,7 +523,7 @@ class AliceOrbView @JvmOverloads constructor(
                 tgtEnergy = (0.38f + mic * 0.62f).coerceIn(0f, 1f)
                 tgtSat = 1.24f
                 tgtBright = 1.08f + mic * 0.34f
-                glowHex = if (mic > 0.25f) Color.parseColor("#86D9A6") else Color.parseColor("#AAC7FF")
+                glowHex = if (mic > 0.25f) Color.parseColor("#86D9A6") else Color.parseColor(LiquidGlassKit.accentHex)
             }
             "thinking" -> {
                 // Fast energetic vortex sweeping violet <-> champagne-gold
@@ -534,7 +534,7 @@ class AliceOrbView @JvmOverloads constructor(
                 tgtEnergy = 0.62f + 0.22f * osc
                 tgtSat = 1.32f
                 tgtBright = 1.16f + 0.12f * osc
-                glowHex = if (osc > 0.5f) Color.parseColor("#AAC7FF") else Color.parseColor("#AAC7FF")
+                glowHex = if (osc > 0.5f) Color.parseColor(LiquidGlassKit.accentHex) else Color.parseColor(LiquidGlassKit.accentHex)
             }
             "speaking" -> {
                 // Radiant iridescent cyan <-> violet <-> warm magenta/gold lip-synced to ttsRms
@@ -544,7 +544,7 @@ class AliceOrbView @JvmOverloads constructor(
                 tgtEnergy = (0.45f + tts * 0.55f).coerceIn(0f, 1f)
                 tgtSat = 1.28f
                 tgtBright = 1.10f + tts * 0.38f
-                glowHex = if (tts > 0.32f) Color.parseColor("#C084FC") else Color.parseColor("#AAC7FF")
+                glowHex = if (tts > 0.32f) Color.parseColor("#C084FC") else Color.parseColor(LiquidGlassKit.accentHex)
             }
             "error" -> {
                 tgtHue = 115f // shifts violet/blue sphere toward crimson-rose
@@ -565,9 +565,9 @@ class AliceOrbView @JvmOverloads constructor(
                     tgtSat = 1.14f + mTot * 0.25f
                     tgtBright = 1.02f + bass * 0.32f + high * 0.10f
                     glowHex = when {
-                        bass > 0.58f -> Color.parseColor("#AAC7FF")
-                        high > 0.45f -> Color.parseColor("#AAC7FF")
-                        else -> Color.parseColor("#AAC7FF")
+                        bass > 0.58f -> Color.parseColor(LiquidGlassKit.accentHex)
+                        high > 0.45f -> Color.parseColor(LiquidGlassKit.accentHex)
+                        else -> Color.parseColor(LiquidGlassKit.accentHex)
                     }
                 } else {
                     // Luminous slow ambient iridescent drift
@@ -1051,9 +1051,9 @@ class AliceOrbView @JvmOverloads constructor(
                 val pAlpha = (alphaF * fade * (90f + bass * 110f)).toInt().coerceIn(0, 255)
                 val pSize = max(1.4f, radius * 0.011f * (0.6f + fade * 0.7f))
                 visPaint.color = when (p[4].toInt()) {
-                    0 -> Color.parseColor("#AAC7FF")
-                    1 -> Color.parseColor("#AAC7FF")
-                    2 -> Color.parseColor("#AAC7FF")
+                    0 -> Color.parseColor(LiquidGlassKit.accentHex)
+                    1 -> Color.parseColor(LiquidGlassKit.accentHex)
+                    2 -> Color.parseColor(LiquidGlassKit.accentHex)
                     else -> Color.parseColor("#E5E1E6")
                 }
                 visPaint.alpha = pAlpha
@@ -1117,12 +1117,12 @@ class AliceOrbView @JvmOverloads constructor(
 
         visPaint.style = Paint.Style.STROKE
         visPaint.strokeWidth = max(1.6f, radius * 0.013f)
-        visPaint.color = Color.parseColor("#AAC7FF")
+        visPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
         visPaint.alpha = (alphaF * (175f + bass * 80f)).toInt().coerceIn(0, 255)
         canvas.drawCircle(cx, cy, coreR, visPaint)
 
         visPaint.strokeWidth = max(1.0f, radius * 0.008f)
-        visPaint.color = Color.parseColor("#AAC7FF")
+        visPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
         visPaint.alpha = (alphaF * (145f + high * 90f)).toInt().coerceIn(0, 255)
         canvas.drawCircle(cx, cy, coreR * 0.80f, visPaint)
     }
@@ -1156,7 +1156,7 @@ class AliceOrbView @JvmOverloads constructor(
             val px = cx + xFrac * safeR * 0.92f
             val py = cy + sin(t * PI.toFloat() * 2f + i) * safeR * 0.42f * env
             val pSize = max(1.6f, radius * (0.010f + (i % 3) * 0.007f + high * 0.012f))
-            visPaint.color = if (i % 2 == 0) Color.parseColor("#AAC7FF") else Color.parseColor("#AAC7FF")
+            visPaint.color = if (i % 2 == 0) Color.parseColor(LiquidGlassKit.accentHex) else Color.parseColor(LiquidGlassKit.accentHex)
             visPaint.alpha = (alphaF * env * 170f).toInt().coerceIn(0, 255)
             canvas.drawCircle(px, py, pSize, visPaint)
         }
@@ -1198,8 +1198,8 @@ class AliceOrbView @JvmOverloads constructor(
                 }
             }
 
-            val topCol = if (layer == 0) Color.parseColor("#AAC7FF") else Color.parseColor("#AAC7FF")
-            val botCol = if (layer == 0) Color.parseColor("#AAC7FF") else Color.parseColor("#E5E1E6")
+            val topCol = if (layer == 0) Color.parseColor(LiquidGlassKit.accentHex) else Color.parseColor(LiquidGlassKit.accentHex)
+            val botCol = if (layer == 0) Color.parseColor(LiquidGlassKit.accentHex) else Color.parseColor("#E5E1E6")
             visGlowPaint.color = topCol
             visGlowPaint.alpha = (alphaF * 55f).toInt().coerceIn(0, 255)
             canvas.drawPath(visWavePath, visGlowPaint)
@@ -1238,7 +1238,7 @@ class AliceOrbView @JvmOverloads constructor(
             val pulse = (sin(totalTime * 3.8f + i) + 1f) * 0.5f
             val pSize = max(2.2f, radius * (0.014f + pulse * 0.024f * (1f + mid)))
 
-            val col = if (i % 2 == 0) Color.parseColor("#AAC7FF") else Color.parseColor("#AAC7FF")
+            val col = if (i % 2 == 0) Color.parseColor(LiquidGlassKit.accentHex) else Color.parseColor(LiquidGlassKit.accentHex)
             visPaint.color = col
             visPaint.alpha = (alphaF * (42f + pulse * 48f)).toInt().coerceIn(0, 255)
             canvas.drawCircle(px, py, pSize * 2.1f, visPaint)
@@ -1274,8 +1274,8 @@ class AliceOrbView @JvmOverloads constructor(
 
             val col = when (a) {
                 0 -> Color.parseColor("#86D9A6")
-                1 -> Color.parseColor("#AAC7FF")
-                else -> Color.parseColor("#AAC7FF")
+                1 -> Color.parseColor(LiquidGlassKit.accentHex)
+                else -> Color.parseColor(LiquidGlassKit.accentHex)
             }
             visGlowPaint.color = col
             visGlowPaint.alpha = (alphaF * 48f).toInt().coerceIn(0, 255)
@@ -1340,9 +1340,9 @@ class AliceOrbView @JvmOverloads constructor(
     private fun blendMultiColor(t: Float): Int {
         val k = t.coerceIn(0f, 1f)
         return when {
-            k < 0.35f -> blendColor(Color.parseColor("#AAC7FF"), Color.parseColor("#AAC7FF"), k / 0.35f)
-            k < 0.72f -> blendColor(Color.parseColor("#AAC7FF"), Color.parseColor("#AAC7FF"), (k - 0.35f) / 0.37f)
-            else -> blendColor(Color.parseColor("#AAC7FF"), Color.parseColor("#F8E2B0"), (k - 0.72f) / 0.28f)
+            k < 0.35f -> blendColor(Color.parseColor(LiquidGlassKit.accentHex), Color.parseColor(LiquidGlassKit.accentHex), k / 0.35f)
+            k < 0.72f -> blendColor(Color.parseColor(LiquidGlassKit.accentHex), Color.parseColor(LiquidGlassKit.accentHex), (k - 0.35f) / 0.37f)
+            else -> blendColor(Color.parseColor(LiquidGlassKit.accentHex), Color.parseColor("#F8E2B0"), (k - 0.72f) / 0.28f)
         }
     }
 
@@ -1379,13 +1379,13 @@ class AliceOrbView @JvmOverloads constructor(
         visPaint.strokeCap = Paint.Cap.ROUND
 
         val outerR = radius * (0.86f + bass * 0.045f)
-        visPaint.color = Color.parseColor("#AAC7FF")
+        visPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
         visPaint.strokeWidth = max(1.6f, radius * 0.014f)
         visPaint.alpha = (alphaF * 165f).toInt().coerceIn(0, 255)
         canvas.drawCircle(cx, cy, outerR, visPaint)
 
         val innerR = radius * (0.60f + mid * 0.035f)
-        visPaint.color = Color.parseColor("#AAC7FF")
+        visPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
         visPaint.strokeWidth = max(1.2f, radius * 0.010f)
         visPaint.alpha = (alphaF * 115f).toInt().coerceIn(0, 255)
         canvas.drawCircle(cx, cy, innerR, visPaint)
@@ -1396,7 +1396,7 @@ class AliceOrbView @JvmOverloads constructor(
         canvas.drawCircle(cx, cy, coreR, visPaint)
 
         // 8 Radar tick marks strictly bounded within 0.94R
-        visPaint.color = Color.parseColor("#AAC7FF")
+        visPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
         visPaint.strokeWidth = max(1.8f, radius * 0.016f)
         visPaint.alpha = (alphaF * 200f).toInt().coerceIn(0, 255)
         val tickLen = radius * 0.055f
@@ -1411,7 +1411,7 @@ class AliceOrbView @JvmOverloads constructor(
         val beamX = cx + cos(nexusScannerAngle) * outerR
         val beamY = cy + sin(nexusScannerAngle) * outerR
         visPaint.strokeWidth = max(1.8f, radius * 0.018f)
-        visPaint.color = Color.parseColor("#AAC7FF")
+        visPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
         visPaint.alpha = (alphaF * (170f + energy * 85f)).toInt().coerceIn(0, 255)
         canvas.drawLine(cx, cy, beamX, beamY, visPaint)
 
@@ -1446,7 +1446,7 @@ class AliceOrbView @JvmOverloads constructor(
             val u = edge[0]; val v = edge[1]
             val avgZ = (nexusProjectedZ[u] + nexusProjectedZ[v]) * 0.5f
             val zNorm = ((avgZ / (sphereBaseR * 1.4f)) + 1.0f) * 0.5f
-            visPaint.color = blendColor(Color.parseColor("#AAC7FF"), Color.parseColor("#AAC7FF"), zNorm)
+            visPaint.color = blendColor(Color.parseColor(LiquidGlassKit.accentHex), Color.parseColor(LiquidGlassKit.accentHex), zNorm)
             visPaint.alpha = (alphaF * (95f + zNorm * 150f)).toInt().coerceIn(0, 255)
             canvas.drawLine(nexusProjectedX[u], nexusProjectedY[u], nexusProjectedX[v], nexusProjectedY[v], visPaint)
         }
@@ -1455,7 +1455,7 @@ class AliceOrbView @JvmOverloads constructor(
         for (i in 0 until 12) {
             val zNorm = ((nexusProjectedZ[i] / (sphereBaseR * 1.4f)) + 1.0f) * 0.5f
             val nodeR = max(2.2f, radius * 0.018f) * (0.7f + zNorm * 0.5f + bass * 0.25f)
-            visPaint.color = Color.parseColor("#AAC7FF")
+            visPaint.color = Color.parseColor(LiquidGlassKit.accentHex)
             visPaint.alpha = (alphaF * (90f + zNorm * 110f)).toInt().coerceIn(0, 255)
             canvas.drawCircle(nexusProjectedX[i], nexusProjectedY[i], nodeR * 1.55f, visPaint)
             visPaint.color = Color.WHITE
@@ -1470,7 +1470,7 @@ class AliceOrbView @JvmOverloads constructor(
                 val px = cx + cos(ang) * (distFrac * radius)
                 val py = cy + sin(ang) * (distFrac * radius)
                 val pNorm = (distFrac / 0.94f).coerceIn(0f, 1f)
-                visPaint.color = if (p[4].toInt() % 2 == 0) Color.parseColor("#AAC7FF") else Color.parseColor("#AAC7FF")
+                visPaint.color = if (p[4].toInt() % 2 == 0) Color.parseColor(LiquidGlassKit.accentHex) else Color.parseColor(LiquidGlassKit.accentHex)
                 visPaint.alpha = (alphaF * sin(pNorm * PI.toFloat()) * 175f).toInt().coerceIn(0, 255)
                 canvas.drawCircle(px, py, max(1.4f, radius * 0.010f), visPaint)
             }

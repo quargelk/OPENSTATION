@@ -1,4 +1,20 @@
 (function () {
+
+function applyAccent(hex){
+  try{
+    if(!/^#[0-9a-fA-F]{6}$/.test(hex||"")) return;
+    var r=parseInt(hex.substr(1,2),16),g=parseInt(hex.substr(3,2),16),b=parseInt(hex.substr(5,2),16);
+    var lum=(0.299*r+0.587*g+0.114*b)/255;
+    var s=document.documentElement.style;
+    s.setProperty("--m3-primary",hex);
+    s.setProperty("--m3-on-primary",lum>0.55?"#11131a":"#ffffff");
+    s.setProperty("--m3-primary-container","color-mix(in srgb,"+hex+" 30%, #1e1e23)");
+    s.setProperty("--m3-on-primary-container","color-mix(in srgb,"+hex+" 72%, #ffffff)");
+    s.setProperty("--m3-secondary-container","color-mix(in srgb,"+hex+" 22%, #2a2b31)");
+    s.setProperty("--m3-on-secondary-container","color-mix(in srgb,"+hex+" 68%, #ffffff)");
+  }catch(e){}
+}
+window.__setAccent=function(hex){ applyAccent(hex); try{ api("/api/config","POST",{uiAccentColor:hex}); }catch(e){} };
   const $ = (id) => document.getElementById(id);
   let state = null;
   let ws = null;
@@ -604,6 +620,8 @@
     state = d;
     const hw = d.hardware || {};
     const cfg = d.config || {};
+    applyAccent(cfg.uiAccentColor || "#aac7ff");
+    if (document.getElementById("uiAccentColor")) document.getElementById("uiAccentColor").value = cfg.uiAccentColor || "#aac7ff";
     const au = d.audio || {};
     const ast = d.assistant || {};
     const wyo = d.wyoming || {};
@@ -2066,6 +2084,8 @@
   function syncWizardTelemetry(d, populateFields) {
     const hw = d.hardware || {};
     const cfg = d.config || {};
+    applyAccent(cfg.uiAccentColor || "#aac7ff");
+    if (document.getElementById("uiAccentColor")) document.getElementById("uiAccentColor").value = cfg.uiAccentColor || "#aac7ff";
     const ast = d.assistant || {};
     const ww = ast.wakeWord || {};
     const m = d.music || {};

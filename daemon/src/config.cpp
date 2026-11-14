@@ -297,6 +297,7 @@ json::Value DaemonConfig::to_json() const {
     Value root = Value::make_obj();
     root["webPort"] = Value::make_int(web_port);
     root["deviceHostname"] = Value::make_str(device_hostname);
+    root["uiAccentColor"] = Value::make_str(ui_accent_color);
     root["setupCompleted"] = Value::make_bool(setup_completed);
 
     Value lr = Value::make_obj();
@@ -440,6 +441,10 @@ void DaemonConfig::from_json(const json::Value& v) {
     if (!v.is_obj()) return;
     if (auto* x = v.get("webPort"); x && x->is_num()) web_port = x->as_int(web_port);
     if (auto* x = v.get("deviceHostname"); x && x->is_str()) device_hostname = x->as_str(device_hostname);
+    if (auto* x = v.get("uiAccentColor"); x && x->is_str()) {
+        std::string a = x->as_str(ui_accent_color);
+        if (a.size()==7 && a[0]=='#') ui_accent_color = a;
+    }
     if (auto* x = v.get("setupCompleted"); x && x->is_bool()) setup_completed = x->as_bool(setup_completed);
 
     if (auto* lr = v.get("ledRing"); lr && lr->is_obj()) {

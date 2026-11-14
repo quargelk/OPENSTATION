@@ -283,7 +283,7 @@ class YandexMusicActivity : Activity() {
         }
         val tvLogo = TextView(this).apply {
             text = "ЯНДЕКС МУЗЫКА"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 18.5f
             typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
             letterSpacing = 0.06f
@@ -303,8 +303,8 @@ class YandexMusicActivity : Activity() {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
         }
-        tabWave = makeIconTextPill(R.drawable.ic_wave, "Моя волна", Color.parseColor("#AAC7FF")) { switchTab("wave") }
-        tabSearch = makeIconTextPill(R.drawable.ic_search, "Поиск", Color.parseColor("#AAC7FF")) { switchTab("search") }
+        tabWave = makeIconTextPill(R.drawable.ic_wave, "Моя волна", Color.parseColor(LiquidGlassKit.accentHex)) { switchTab("wave") }
+        tabSearch = makeIconTextPill(R.drawable.ic_search, "Поиск", Color.parseColor(LiquidGlassKit.accentHex)) { switchTab("search") }
         tabCollection = makeIconTextPill(R.drawable.ic_heart_filled, "Коллекция", null) { switchTab("collection") }
         tabAuth = makeIconTextPill(R.drawable.ic_settings, "Вход", Color.parseColor("#C8C5CF")) { switchTab("auth") }
         val btnBackHome = makeIconTextPill(R.drawable.ic_home, "Домой", Color.parseColor("#E5E1E6")) { finish() }.apply {
@@ -381,7 +381,7 @@ class YandexMusicActivity : Activity() {
         }
         tvSourceBadge = TextView(this).apply {
             text = "МОЯ ВОЛНА"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 10.5f
             typeface = Typeface.DEFAULT_BOLD
             letterSpacing = 0.05f
@@ -395,7 +395,7 @@ class YandexMusicActivity : Activity() {
         tvCodecBadge = TextView(this).apply {
             text = ""
             visibility = View.GONE
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 10.5f
             typeface = Typeface.DEFAULT_BOLD
             setPadding(dp(9), dp(3), dp(9), dp(3))
@@ -505,7 +505,7 @@ class YandexMusicActivity : Activity() {
             }
         }
         btnPrev = makeCtrlIconBtn(R.drawable.ic_prev, Color.WHITE) { doPlayerAction("PREV") }
-        btnPlayPause = makeCtrlIconBtn(R.drawable.ic_play, Color.parseColor("#AAC7FF")) { doPlayerAction("PLAY_PAUSE") }
+        btnPlayPause = makeCtrlIconBtn(R.drawable.ic_play, Color.parseColor(LiquidGlassKit.accentHex)) { doPlayerAction("PLAY_PAUSE") }
         btnNext = makeCtrlIconBtn(R.drawable.ic_next, Color.WHITE) { doPlayerAction("NEXT") }
         btnLike = makeCtrlIconBtn(R.drawable.ic_heart_outline, null) { doPlayerAction("LIKE") }
         btnDislike = makeCtrlIconBtn(R.drawable.ic_dislike, Color.parseColor("#C8C5CF")) { doPlayerAction("DISLIKE") }
@@ -606,7 +606,7 @@ class YandexMusicActivity : Activity() {
 
         val moodTitle = TextView(this).apply {
             text = "НАСТРОЕНИЕ ВОЛНЫ"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -681,7 +681,7 @@ class YandexMusicActivity : Activity() {
             typeface = Typeface.DEFAULT_BOLD
             layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
         }
-        val btnRestartWave = makeIconTextPill(R.drawable.ic_refresh, "Перезапустить", Color.parseColor("#AAC7FF")) {
+        val btnRestartWave = makeIconTextPill(R.drawable.ic_refresh, "Перезапустить", Color.parseColor(LiquidGlassKit.accentHex)) {
             startMyWave(lastSnapshot.waveMood)
         }.apply {
             (layoutParams as LinearLayout.LayoutParams).marginEnd = 0
@@ -741,7 +741,7 @@ class YandexMusicActivity : Activity() {
                 }
             }
         }
-        val btnFind = makeIconTextPill(R.drawable.ic_search, "Найти", Color.parseColor("#AAC7FF")) { performSearch() }.apply {
+        val btnFind = makeIconTextPill(R.drawable.ic_search, "Найти", Color.parseColor(LiquidGlassKit.accentHex)) { performSearch() }.apply {
             (layoutParams as LinearLayout.LayoutParams).marginEnd = 0
         }
         searchRow.addView(etSearch)
@@ -786,7 +786,7 @@ class YandexMusicActivity : Activity() {
             collectionMode = "chart"
             loadCollection()
         }
-        btnColPlayAll = makeIconTextPill(R.drawable.ic_play, "Включить список", Color.parseColor("#AAC7FF")) {
+        btnColPlayAll = makeIconTextPill(R.drawable.ic_play, "Включить список", Color.parseColor(LiquidGlassKit.accentHex)) {
             if (collectionTracks.isNotEmpty()) {
                 val lbl = if (collectionMode == "chart") "Топ Чарт" else "Мне нравится"
                 player()?.playTrackList(collectionTracks, 0, collectionMode, lbl)
@@ -828,7 +828,7 @@ class YandexMusicActivity : Activity() {
 
         val tvH1 = TextView(this).apply {
             text = "АККАУНТ ЯНДЕКС МУЗЫКИ"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -845,7 +845,7 @@ class YandexMusicActivity : Activity() {
             orientation = LinearLayout.HORIZONTAL
             setPadding(0, 0, 0, dp(16))
         }
-        val btnBrowserLogin = makeIconTextPill(R.drawable.ic_open_external, "Войти через Яндекс", Color.parseColor("#AAC7FF")) {
+        val btnBrowserLogin = makeIconTextPill(R.drawable.ic_open_external, "Войти через Яндекс", Color.parseColor(LiquidGlassKit.accentHex)) {
             openPassportOAuthDialog()
         }
         val btnManualToken = makeIconTextPill(R.drawable.ic_key, "OAuth токен", null) {
@@ -863,7 +863,7 @@ class YandexMusicActivity : Activity() {
 
         val tvH2 = TextView(this).apply {
             text = "КАЧЕСТВО АУДИО"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -1182,7 +1182,7 @@ class YandexMusicActivity : Activity() {
                 else -> R.drawable.ic_play
             }
         )?.mutate()?.apply {
-            setTint(Color.parseColor("#AAC7FF"))
+            setTint(Color.parseColor(LiquidGlassKit.accentHex))
         }
         btnPlayPause.icon.setImageDrawable(ppIcon)
 
@@ -1257,7 +1257,7 @@ class YandexMusicActivity : Activity() {
             if (isActive) {
                 val ivPlay = ImageView(this).apply {
                     val d = getDrawable(R.drawable.ic_play)?.mutate()
-                    d?.setTint(Color.parseColor("#AAC7FF"))
+                    d?.setTint(Color.parseColor(LiquidGlassKit.accentHex))
                     setImageDrawable(d)
                     layoutParams = LinearLayout.LayoutParams(dp(16), dp(16)).apply {
                         marginStart = dp(6)
@@ -1285,7 +1285,7 @@ class YandexMusicActivity : Activity() {
             }
             val tvT = TextView(this).apply {
                 text = tr.title
-                setTextColor(Color.parseColor(if (isActive) "#AAC7FF" else "#E5E1E6"))
+                setTextColor(Color.parseColor(if (isActive) LiquidGlassKit.accentHex else "#E5E1E6"))
                 textSize = 14f
                 typeface = if (isActive) Typeface.DEFAULT_BOLD else Typeface.DEFAULT
                 maxLines = 1

@@ -226,7 +226,7 @@ class SetupWizardActivity : Activity() {
         }
         val tvTitle = TextView(this).apply {
             text = "OpenStation Max · Мастер настройки"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 18f
             typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
             letterSpacing = 0.03f
@@ -324,7 +324,7 @@ class SetupWizardActivity : Activity() {
         }
         val tvOrbTitle = TextView(this).apply {
             text = "ЯНДЕКС СТАНЦИЯ МАКС"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -392,7 +392,7 @@ class SetupWizardActivity : Activity() {
         }
         tvQrUrl = TextView(this).apply {
             text = "http://127.0.0.1:8080/#wizard"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 10.5f
             maxLines = 2
             ellipsize = TextUtils.TruncateAt.END
@@ -539,7 +539,7 @@ class SetupWizardActivity : Activity() {
 
         tvStep1RemoteStatus = TextView(this).apply {
             text = "🎮 BLE-пульт YNDX: ожидание автопоиска..."
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 12f
             typeface = Typeface.create("sans-serif-medium", Typeface.BOLD)
             setPadding(dp(12), dp(8), dp(12), dp(8))
@@ -752,7 +752,7 @@ class SetupWizardActivity : Activity() {
         tvStep2VuStats = TextView(this).apply {
             text = "0 RMS | Шум: 0 | vqe"
             textSize = 10f
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             typeface = Typeface.MONOSPACE
         }
         vuHeader.addView(tvVuLabel)
@@ -1020,7 +1020,7 @@ class SetupWizardActivity : Activity() {
                     }
                     addView(TextView(this@SetupWizardActivity).apply {
                         text = h
-                        setTextColor(Color.parseColor("#AAC7FF"))
+                        setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
                         textSize = 12f
                         typeface = Typeface.DEFAULT_BOLD
                     })
@@ -1121,7 +1121,7 @@ class SetupWizardActivity : Activity() {
 
     private fun testGeminiLiveConnection(overrideKey: String? = null) {
         tvStep2GeminiStatus.text = "⏳ Подключение к Gemini Live (прямо и через SNI)..."
-        tvStep2GeminiStatus.setTextColor(Color.parseColor("#AAC7FF"))
+        tvStep2GeminiStatus.setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
         thread(isDaemon = true) {
             try {
                 val body = JSONObject().put("geminiProxyHost", curProxyHost)
@@ -1302,7 +1302,7 @@ class SetupWizardActivity : Activity() {
             tvChkDns.setTextColor(Color.parseColor("#86D9A6"))
         } else {
             tvChkDns.text = "• DNS: ${curDnsMode.ifBlank { "авто" }}"
-            tvChkDns.setTextColor(Color.parseColor("#AAC7FF"))
+            tvChkDns.setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
         }
 
         if (curHasKey) {
@@ -1395,7 +1395,7 @@ class SetupWizardActivity : Activity() {
             tvStep3MusicStatus.setTextColor(Color.parseColor("#86D9A6"))
         } else {
             tvStep3MusicStatus.text = "Вход не выполнен — нажмите «Войти с экрана (полный QR)» выше."
-            tvStep3MusicStatus.setTextColor(Color.parseColor("#AAC7FF"))
+            tvStep3MusicStatus.setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
         }
         refreshBleRemoteStatusText()
 
@@ -1458,7 +1458,7 @@ class SetupWizardActivity : Activity() {
 
     private fun makeSubLabel(textStr: String): TextView = TextView(this).apply {
         text = textStr.uppercase(Locale.getDefault())
-        setTextColor(Color.parseColor("#AAC7FF"))
+        setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
         textSize = 10.5f
         letterSpacing = 0.08f
         typeface = Typeface.DEFAULT_BOLD
@@ -1545,7 +1545,7 @@ class SetupWizardActivity : Activity() {
                     val col = when (st) {
                         "connected" -> "#86D9A6"
                         "error", "not_found" -> "#F8E2B0"
-                        else -> "#AAC7FF"
+                        else -> LiquidGlassKit.accentHex
                     }
                     tvStep1RemoteStatus.text = "🎮 $detail"
                     tvStep1RemoteStatus.setTextColor(Color.parseColor(col))
@@ -1580,7 +1580,7 @@ class SetupWizardActivity : Activity() {
                 st.bonded -> "Пульт ${st.name}: нет подключения$bat"
                 else -> "Пульт не подключён"
             }
-            tvStep1RemoteStatus.setTextColor(Color.parseColor(if (st.connected) "#86D9A6" else "#AAC7FF"))
+            tvStep1RemoteStatus.setTextColor(Color.parseColor(if (st.connected) "#86D9A6" else LiquidGlassKit.accentHex))
         }
     }
 

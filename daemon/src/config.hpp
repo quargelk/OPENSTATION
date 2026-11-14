@@ -150,6 +150,7 @@ struct DaemonConfig {
     std::string path = "/data/local/openstation/config.json";
     int web_port = 8080;
     std::string device_hostname = "station-max";
+    std::string ui_accent_color = "#AAC7FF";  // M3 primary accent (hex), shared by web UI + launcher
     bool setup_completed = false;
     LedRingConfig led_ring;
     LedScreenConfig led_screen;

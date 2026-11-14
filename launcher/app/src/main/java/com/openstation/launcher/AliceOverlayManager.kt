@@ -194,7 +194,7 @@ class AliceOverlayManager(private val context: Context) {
 
         val dotShape = GradientDrawable().apply {
             shape = GradientDrawable.OVAL
-            setColor(Color.parseColor("#AAC7FF"))
+            setColor(Color.parseColor(LiquidGlassKit.accentHex))
         }
         stateDotBg = dotShape
         val dot = View(context).apply {
@@ -206,7 +206,7 @@ class AliceOverlayManager(private val context: Context) {
 
         val stateTv = TextView(context).apply {
             text = "МАКС · СЛУШАЮ"
-            setTextColor(Color.parseColor("#AAC7FF"))
+            setTextColor(Color.parseColor(LiquidGlassKit.accentHex))
             textSize = 11f
             letterSpacing = 0.08f
             typeface = Typeface.DEFAULT_BOLD
@@ -279,7 +279,7 @@ class AliceOverlayManager(private val context: Context) {
 
         when (st) {
             "connecting" -> {
-                accent = Color.parseColor("#AAC7FF")
+                accent = Color.parseColor(LiquidGlassKit.accentHex)
                 borderColor = Color.parseColor("#88AAC7FF")
                 stateLabel = "МАКС · ПОДКЛЮЧЕНИЕ"
                 fallbackReply = "Подключаю голосовой поток..."
@@ -291,7 +291,7 @@ class AliceOverlayManager(private val context: Context) {
                 fallbackReply = if (userTxt.isNotEmpty()) "«$userTxt»" else "Говорите, я внимательно слушаю..."
             }
             "thinking" -> {
-                accent = Color.parseColor("#AAC7FF")
+                accent = Color.parseColor(LiquidGlassKit.accentHex)
                 borderColor = Color.parseColor("#AAAAC7FF")
                 stateLabel = "МАКС · ДУМАЮ"
                 fallbackReply = if (userTxt.isNotEmpty()) "Обрабатываю: «$userTxt»" else "Формирую ответ..."
@@ -309,7 +309,7 @@ class AliceOverlayManager(private val context: Context) {
                 fallbackReply = "Не удалось выполнить запрос"
             }
             else -> {
-                accent = Color.parseColor("#AAC7FF")
+                accent = Color.parseColor(LiquidGlassKit.accentHex)
                 borderColor = Color.parseColor("#7AAAC7FF")
                 stateLabel = "МАКС"
                 fallbackReply = ""
