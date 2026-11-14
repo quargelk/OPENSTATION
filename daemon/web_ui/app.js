@@ -745,7 +745,7 @@
       document.querySelectorAll("#ringModes .seg").forEach((b) => {
         b.classList.toggle("active", b.dataset.mode === cfg.ledRing.mode);
       });
-      if ($("ringColor")) $("ringColor").value = cfg.ledRing.color || "#00d4ff";
+      if ($("ringColor")) $("ringColor").value = cfg.ledRing.color || "#aac7ff";
       if ($("ringSecColor")) $("ringSecColor").value = cfg.ledRing.secondaryColor || "#7c3aed";
       if ($("ringBrightness")) {
         $("ringBrightness").value = cfg.ledRing.brightness ?? 160;
@@ -1035,7 +1035,7 @@
     const linePath = document.createElementNS("http://www.w3.org/2000/svg", "path");
     linePath.setAttribute("d", d);
     linePath.setAttribute("fill", "none");
-    linePath.setAttribute("stroke", "#00d4ff");
+    linePath.setAttribute("stroke", "#aac7ff");
     linePath.setAttribute("stroke-width", "2.2");
     linePath.setAttribute("stroke-linecap", "round");
     svg.appendChild(linePath);
@@ -2136,7 +2136,7 @@
       if ($("wizAudioRoute") && document.activeElement !== $("wizAudioRoute")) $("wizAudioRoute").value = cfg.audio?.outputRoute || "auto";
       if ($("wizEqPreset") && document.activeElement !== $("wizEqPreset")) $("wizEqPreset").value = cfg.audio?.eqPreset || "balanced";
       if ($("wizRingMode") && document.activeElement !== $("wizRingMode")) $("wizRingMode").value = cfg.ledRing?.mode || "music";
-      if ($("wizRingColor") && document.activeElement !== $("wizRingColor")) $("wizRingColor").value = cfg.ledRing?.color || "#00d4ff";
+      if ($("wizRingColor") && document.activeElement !== $("wizRingColor")) $("wizRingColor").value = cfg.ledRing?.color || "#aac7ff";
       if ($("wizAutoBri")) $("wizAutoBri").checked = cfg.ledRing?.autoBrightness !== false;
       if ($("wizActShort") && document.activeElement !== $("wizActShort")) $("wizActShort").value = cfg.input?.actionShort || "assistant";
     }
@@ -2247,7 +2247,7 @@
       $(id).addEventListener("change", () => pushPartialConfig({
         ledRing: {
           mode: $("wizRingMode")?.value || "music",
-          color: $("wizRingColor")?.value || "#00d4ff",
+          color: $("wizRingColor")?.value || "#aac7ff",
           autoBrightness: $("wizAutoBri") ? $("wizAutoBri").checked : true
         }
       }, "Подсветка обновлена"));
@@ -2270,7 +2270,7 @@
         },
         ledRing: {
           mode: $("wizRingMode")?.value || "music",
-          color: $("wizRingColor")?.value || "#00d4ff",
+          color: $("wizRingColor")?.value || "#aac7ff",
           autoBrightness: $("wizAutoBri") ? $("wizAutoBri").checked : true
         },
         audio: {
